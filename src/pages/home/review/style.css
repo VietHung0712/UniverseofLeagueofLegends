@@ -1,0 +1,300 @@
+section#review {
+
+    .elActive {
+        opacity: 0;
+        visibility: hidden;
+
+        &.active {
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+    }
+
+    .borBackgroundImage {
+        height: auto;
+        /**/
+        padding-top: 91.66666667%;
+        /**/
+        border: 1px solid var(--color3-);
+
+        button.btnClose {
+            top: 5%;
+            left: 5%;
+            box-shadow: 0 0 10px 10px #000;
+        }
+
+        .backgroundImage {
+            top: 50%;
+            transform: translate(-50%, -50%) scale(1);
+            padding-top: 100%;
+            /**/
+            background-position: 50% 50%;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-image: linear-gradient(to bottom, #000, #00000000, #00000000, #00000000, #000), url("https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/Others/Runeterra_Terrain_map.webp");
+            transition: all 1s ease-in-out;
+        }
+
+        .avatars {
+
+            button {
+                z-index: 1;
+                height: 50px;
+                position: absolute;
+                transform: translate(-50%, -50%) scale(0.3);
+                /**/
+                background-color: transparent;
+                border: 0;
+                transition: all 300ms ease-in-out;
+
+                &.Bilgewater,
+                &.Ionia,
+                &.Ixtal,
+                &.Zaun,
+                &.Piltover,
+                &.Shadow_Isles {
+                    .avatarBackground {
+                        right: 100%;
+                    }
+                }
+
+                &.Noxus,
+                &.Shurima,
+                &.Demacia,
+                &.The_Freljord,
+                &.Targon {
+                    .avatarBackground {
+                        left: 100%;
+                    }
+                }
+
+                &.Bilgewater {
+                    top: 57%;
+                    left: 78%;
+                }
+
+                &.Demacia {
+                    top: 47%;
+                    left: 30%;
+                }
+
+                &.Ionia {
+                    top: 39%;
+                    left: 75%;
+                }
+
+                &.Ixtal {
+                    top: 67%;
+                    left: 65%;
+                }
+
+                &.Noxus {
+                    top: 43%;
+                    left: 49%;
+                }
+
+                &.Piltover {
+                    top: 53%;
+                    left: 60%;
+                }
+
+                &.Shadow_Isles {
+                    top: 68%;
+                    left: 84%;
+                }
+
+                &.Shurima {
+                    top: 66%;
+                    left: 54%;
+                }
+
+                &.Targon {
+                    top: 69%;
+                    left: 40%;
+                }
+
+                &.The_Freljord {
+                    top: 38%;
+                    left: 32%;
+                }
+
+                &.Zaun {
+                    top: 57%;
+                    left: 60%;
+                }
+
+                &.hidden {
+                    opacity: 0;
+                    visibility: hidden;
+                }
+
+                &.active {
+                    opacity: 1;
+                    visibility: visible;
+                }
+
+                &:hover {
+                    z-index: 2;
+
+                    .avatarBackground {
+                        opacity: 1;
+                        visibility: visible;
+                    }
+
+                    img {
+                        &.avatar {
+                            transform: scale(1.4);
+                            opacity: 1;
+                        }
+
+                        &.icon {
+                            opacity: 0;
+                        }
+                    }
+                }
+
+                img {
+                    height: 50px;
+                    width: 50px;
+                    object-fit: contain;
+                    border-radius: 50%;
+                    transition: all 300ms ease-in-out;
+                    transform-origin: 50% 100%;
+
+                    &.icon {
+                        z-index: 1;
+                        position: absolute;
+                        background-size: contain;
+                        background-color: #000;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        background-image: url("https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/Others/ChampionIconFrame.jpg");
+                        padding: 10px;
+                    }
+
+                    &.avatar {
+                        opacity: 0;
+                    }
+                }
+
+                p {
+                    color: #fff;
+                    text-align: center;
+                    font-weight: bold;
+                    text-transform: uppercase;
+                    font-size: 16px;
+                    /**/
+                    letter-spacing: 3px;
+                    transition: all 300ms ease-in-out;
+                }
+
+                .avatarBackground {
+                    position: absolute;
+                    z-index: 2;
+                    top: 0;
+                    color: #fff;
+                    letter-spacing: 1px;
+                    text-transform: uppercase;
+                    font-size: 16px;
+                    /**/
+                    width: max-content;
+                    padding: 10px 25px;
+                    transition: all 300ms ease-in-out;
+
+                    &>div {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        z-index: -1;
+                        background-size: cover;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        height: 100%;
+                        width: 100%;
+                        filter: brightness(0.3);
+                    }
+                }
+
+                a {
+                    position: absolute;
+                    width: max-content;
+                    top: 250%;
+                    left: 50%;
+                    padding: 5px 10px;
+                    transform: translateX(-50%);
+                    display: block;
+                    font-size: 16px;
+                    /**/
+                    letter-spacing: 1px;
+                    text-decoration: none;
+                    color: var(--color3-);
+                    background-color: #000000;
+                    transition: all 1000ms ease-in-out;
+                    text-transform: uppercase;
+
+                    &.active {
+                        top: 150%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 768px) {
+
+    section#review {
+
+        .borBackgroundImage {
+
+            .avatars {
+                
+                button {
+                    transform: translate(-50%, -50%) scale(0.5);
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 992px) {
+
+    section#review {
+
+        .borBackgroundImage {
+            height: calc(100vh - 80px);
+            padding: 0;
+
+            .backgroundImage {
+                top: 40%;
+                padding: 0;
+                padding-top: 100%;
+            }
+
+            .avatars {
+
+                button {
+                    height: 3.5vw;
+                    transform: translate(-50%, -50%) scale(1);
+
+                    img {
+                        height: 3.5vw;
+                        width: 3.5vw;
+                    }
+
+                    p {
+                        font-size: 12px;
+                    }
+
+                    .avatarBackground {
+                        font-size: 8px;
+                    }
+
+                    a {
+                        font-size: 8px;
+                    }
+                }
+            }
+        }
+    }
+}

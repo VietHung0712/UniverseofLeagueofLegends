@@ -1,0 +1,180 @@
+section#slide {
+    height: calc(95vh - 80px);
+    min-height: 600px;
+
+    .ctr {
+        .item {
+            z-index: 0;
+            position: absolute;
+            bottom: 0;
+            height: 93%;
+            width: 100%;
+            transform: scale(1) translateZ(0px);
+            filter: grayscale(100%) brightness(0.3);
+            transition: all 300ms ease-in-out;
+
+            &:nth-child(3) {
+                z-index: 1;
+                filter: grayscale(0%) brightness(1);
+                left: 0;
+                transform: scale(1.2) translateZ(100px);
+            }
+
+            &:nth-child(1) {
+                left: -200%;
+            }
+
+            &:nth-child(2) {
+                left: -100%;
+            }
+
+            &:nth-child(4) {
+                left: 100%;
+            }
+
+            &:nth-child(5) {
+                left: 200%;
+            }
+        }
+    }
+
+    .container-fluid {
+        overflow: hidden;
+
+        #slideLate {
+            height: 70%;
+            transform-style: preserve-3d;
+
+            .item {
+                &:nth-child(3) {
+                    transform-origin: 50% 100%;
+                    transition: left 300ms ease,
+                        filter 200ms 200ms ease,
+                        transform 200ms 400ms ease-in;
+                    box-shadow:
+                        -40px 0 40px -5px rgba(0, 0, 0),
+                        40px 0 40px -5px rgba(0, 0, 0);
+                }
+            }
+        }
+
+        #divBtnLate {
+            transform: translateX(-50%);
+            top: 30%;
+            display: none;
+
+            button {
+                height: 50px;
+                width: 50px;
+
+                div {
+                    &:first-child {
+                        transform: translate(-50%, -50%);
+                        width: 60%;
+                        height: 60%;
+                        border: 3px solid var(--color2-);
+                    }
+
+                    svg {
+                        color: var(--color2-);
+                        font-size: 40px;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                    }
+
+                    &:last-child {
+                        border: 2px solid var(--color2-);
+                        height: 100%;
+                        width: 100%;
+                    }
+                }
+
+                &:hover {
+                    div:last-child {
+                        transform: scale(1.1);
+                    }
+                }
+            }
+        }
+
+        #titleLate {
+            transform: translateX(-50%);
+            bottom: 4%;
+            height: 250px;
+
+            .item {
+                filter: grayscale(30%) brightness(0.3);
+
+                &:nth-child(3) {
+
+                    filter: grayscale(0%) brightness(1);
+
+                    canvas {
+                        opacity: 1;
+                    }
+
+                    div {
+                        height: 100%;
+                        background-color: #00000000;
+                        transition: all 200ms ease-in-out;
+                    }
+
+                    a {
+                        z-index: 3;
+                    }
+
+                    &:hover {
+                        canvas {
+                            filter: brightness(0.8);
+                        }
+                    }
+                }
+
+                div {
+                    height: 80%;
+                    transform: translateY(-50%);
+                    background-color: #0f0f0f;
+
+                    img {
+                        margin-bottom: 15px;
+                    }
+
+                    h2 {
+                        font-size: 14px;
+                        letter-spacing: 4px;
+                        color: var(--color1-);
+                    }
+
+                    h1 {
+                        font-size: 30px;
+                        color: var(--color3-);
+                    }
+                }
+
+                canvas {
+                    position: absolute;
+                    z-index: 1;
+                    top: 0;
+                    left: 0;
+                    bottom: 0;
+                    height: 100%;
+                    width: 100%;
+                    opacity: 0;
+                    transition: opacity 200ms ease-in-out;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    section#slide {
+        .container-fluid {
+            #divBtnLate {
+                display: block;
+            }
+        }
+    }
+}
