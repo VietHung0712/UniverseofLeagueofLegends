@@ -1,5 +1,6 @@
 section#loading {
     position: relative;
+    min-height: 30vh;
 
     .bor {
         width: 7em;

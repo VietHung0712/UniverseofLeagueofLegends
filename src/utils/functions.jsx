@@ -6,3 +6,15 @@ export function animationSlide(container, dir) {
         container.prepend(items[items.length - 1]);
     }
 }
+
+export function getRegionName(regions) {
+    if (!regions || !Array.isArray(regions)) return [];
+
+    const result = [];
+    for (let i = 0; i < regions.length; i++) {
+        const region = regions[i];
+        result[region.id] = region.name;
+    }
+
+    return result;
+}

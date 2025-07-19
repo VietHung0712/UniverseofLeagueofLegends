@@ -1,14 +1,14 @@
 import { memo } from "react";
-import './style.css';
+import styles from './style.module.css';
 
 const Footer = () => {
     return (
-        <footer>
-            <div className="img">
+        <footer className={styles.footer}>
+            <div className={styles.img}>
                 <img src="https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/Others/ahri.avif" alt="" />
             </div>
-            <div className="ctr">
-                <div className="take">
+            <div className={styles.ctr}>
+                <div className={styles.take}>
                     <div>
                         <p className="text-white">Riot Games : </p>
                         <a target="_blank" rel="noopener noreferrer"
@@ -16,8 +16,8 @@ const Footer = () => {
                             Leagues of Legends</a>
                     </div>
                 </div>
-                <div className="made">
-                    <div className="socials-list">
+                <div className={styles.made}>
+                    <div className={styles.socials__list}>
                         <a href="">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" className="bi bi-facebook"
                                 viewBox="0 0 16 16">
@@ -54,7 +54,7 @@ const Footer = () => {
                             </svg>
                         </a>
                     </div>
-                    <p className="powerBy">Power by <a href="">TranVietHung</a></p>
+                    <p className={styles.powerBy}>Power by <a href="">TranVietHung</a></p>
                 </div>
             </div>
         </footer>

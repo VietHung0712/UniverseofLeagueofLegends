@@ -1,15 +1,15 @@
 import { memo } from "react";
-import './style.css';
+import styles from "./style.module.css";
 
 const Loading = () => {
     return (
-        <section id="loading">
-            <div className="bor">
-                <div className="spinner"></div>
-                <div className="spinner"></div>
-                <div className="spinner"></div>
-                <div className="spinner"></div>
-                <div className="spinner"></div>
+        <section id={styles.loading}>
+            <div className={styles.bor}>
+                <div className={styles.spinner}></div>
+                <div className={styles.spinner}></div>
+                <div className={styles.spinner}></div>
+                <div className={styles.spinner}></div>
+                <div className={styles.spinner}></div>
             </div>
         </section>
     )

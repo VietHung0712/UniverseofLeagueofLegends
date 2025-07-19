@@ -1,17 +1,17 @@
 import { memo } from "react";
 import Slide from "./slide";
 import Review from "./review";
-import './style.css';
+import Alt from "./alt";
+import styles from './style.module.css';
 
 const HomePage = () => {
     return (
-        <main>
+        <main id={styles.main}>
             <Slide />
             <Review />
+            <Alt />
         </main>
     );
 };
-    // const demaciaChampions = champions.filter(champ => champ.region.trim() === "Demacia");
-
 
 export default memo(HomePage);

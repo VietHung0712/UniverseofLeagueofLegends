@@ -10,6 +10,14 @@ section#review {
         }
     }
 
+    .container__head {
+        padding-bottom: 0;
+    }
+
+    .container__main {
+        padding-top: 80px;
+    }
+
     .borBackgroundImage {
         height: auto;
         /**/
@@ -248,7 +256,7 @@ section#review {
         .borBackgroundImage {
 
             .avatars {
-                
+
                 button {
                     transform: translate(-50%, -50%) scale(0.5);
                 }

@@ -13,21 +13,28 @@
     font-family: Beaufort for LOL, Arial, sans-serif;
 }
 
-p, h1, h2, h3, h4, h5, h6 {
-  margin: 0;
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
 }
 
 body,
 html {
     scroll-behavior: smooth;
     background-color: #000;
+    overflow-x: hidden;
+    width: 100%;
 }
 
 main {
     margin-top: 80px;
     width: 100%;
     padding-bottom: 10vh;
-    overflow: hidden;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -35,6 +42,7 @@ main {
 
 section {
     overflow: hidden;
+    padding-bottom: 5vh;
 }
 
 img {
@@ -101,6 +109,10 @@ a {
     letter-spacing: 3px;
 }
 
+.letter-spacing-4 {
+    letter-spacing: 4px;
+}
+
 .font-size-12 {
     font-size: 12px !important;
 }
@@ -130,6 +142,11 @@ a {
     transform: translate(-50%, -50%);
 }
 
+.img__filter {
+    filter: brightness(.3) grayscale(100%);
+    opacity: 0.5;
+}
+
 .scrollbar {
     &::-webkit-scrollbar {
         width: 5px;
@@ -146,5 +163,81 @@ a {
 
     &:hover::-webkit-scrollbar-thumb {
         background-color: var(--color4-);
+    }
+}
+
+.paragraph {
+    text-align: justify;
+    line-height: 1.4;
+    color: var(--color1-);
+    font-size: 14px;
+
+    &::first-letter {
+        font-weight: 500;
+        font-size: 44px;
+        border-bottom: 3px solid #937341;
+        float: left;
+        line-height: 1.2;
+        margin: -2px 20px 0 18px;
+        padding: 0 8px 0 10px;
+    }
+}
+
+.animationView {
+
+    &:hover span {
+        animation: animatedView 0.5s ease;
+    }
+}
+
+@keyframes animatedView {
+    0% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(30px);
+        opacity: 0;
+    }
+
+    75% {
+        transform: translateX(-10px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideShow {
+    from {
+        opacity: 0;
+        transform: scale(1.2);
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+        ;
+    }
+}
+
+@keyframes scaleZoom {
+    0% {
+        transform: scale(1);
+    }
+
+    80% {
+        transform: scale(1.1);
+    }
+
+    90% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1.1);
     }
 }

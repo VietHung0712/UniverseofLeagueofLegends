@@ -6,7 +6,7 @@ import { useChampions } from "../../../api/useModel";
 import HexagonCanvas from '../hexagonCanvas';
 import ROUTERS from "../../../utils/router";
 import Loading from "../../../components/loading";
-import './style.css';
+import styles from './style.module.css';
 
 const Slide = () => {
 
@@ -63,10 +63,10 @@ const Content = ({ array }) => {
     };
 
     return (
-        <section id="slide">
-            <div className="container-fluid position-relative h-100 overflow-hidden">
+        <section id={styles.slide}>
+            <div className={`${styles.slide__ctr} container-fluid position-relative h-100 overflow-hidden`}>
                 <div className="row">
-                    <div id="divBtnLate" className="col-12 col-md-9 position-absolute start-50 z-1">
+                    <div id={styles.divBtnLate} className="col-12 col-md-9 position-absolute start-50 z-1">
                         <button className="position-relative border-0 rounded-circle bg-black transition200ms" onClick={() => handleSlide(0)}>
                             <div className="position-absolute start-50 top-50 rounded-circle">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-caret-left-fill" viewBox="0 0 16 16">
@@ -86,10 +86,10 @@ const Content = ({ array }) => {
                     </div>
                 </div>
                 <div className="row h-100">
-                    <div id="slideLate" className="ctr col-9 col-md-7 position-relative bottom-0 m-auto" ref={slideRef} onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
+                    <div id={styles.slideLate} className={`${styles.ctr} col-9 col-md-7 position-relative bottom-0 m-auto`} ref={slideRef} onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
                         {
                             array?.map((item, key) => (
-                                <div className="item h-100" key={key}>
+                                <div className={`${styles.item} h-100`} key={key}>
                                     <img className="h-100 w-100 object-fit-cover" alt=""
                                         style={{ objectPosition: `${item.position_x ?? 50}% ${item.position_y ?? 50}%` }}
                                         src={item.splash_art} />
@@ -97,10 +97,10 @@ const Content = ({ array }) => {
                             ))
                         }
                     </div>
-                    <div id="titleLate" className="ctr col-11 col-md-4 position-absolute start-50 z-1" ref={slideTitleRef}>
+                    <div id={styles.titleLate} className={`${styles.ctr} col-11 col-md-4 position-absolute start-50 z-1`} ref={slideTitleRef}>
                         {
                             array?.map((item, key) => (
-                                <div className="item" key={key}>
+                                <div className={styles.item} key={key}>
                                     <div className="position-absolute z-2 top-50 w-100 flex-center flex-column text-uppercase">
                                         <img className="object-fit-contain" width="40" height="40" loading="lazy" alt=""
                                             src="https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/Others/content_type_icon_champion__3nwJQ.png" />

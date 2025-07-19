@@ -6,7 +6,7 @@
     gap: 0.5rem;
     min-height: 10vh;
     padding-bottom: 5vh;
-    margin-top: 5vh;
+    padding-top: 5vh;
 
     &>img {
         position: relative;
@@ -15,17 +15,13 @@
         max-height: 32px;
     }
 
-    &>svg {
-        color: var(--color1-);
-    }
-
     &>h1 {
         position: relative;
         margin: 0;
         text-transform: uppercase;
-        letter-spacing: 3px;
+        letter-spacing: 7px;
         width: max-content;
-        font-size: 28px;
+        font-size: 24px;
         color: var(--color1-);
     }
 }
@@ -38,18 +34,19 @@
             &::after {
                 position: absolute;
                 content: "";
-                width: 15vw;
+                width: 20vw;
                 height: 1px;
                 top: 45%;
+                opacity: 0.4;
             }
 
             &::before {
-                right: 110%;
+                right: calc(100% + 60px);
                 background: linear-gradient(to left, var(--color2-), transparent);
             }
 
             &::after {
-                left: 110%;
+                left: calc(100% + 60px);
                 background: linear-gradient(to right, var(--color2-), transparent);
             }
         }

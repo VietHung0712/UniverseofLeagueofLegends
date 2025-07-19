@@ -1,0 +1,21 @@
+.champions__list {
+    margin-bottom: 5vh;
+
+    &>.row__list {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media (min-width: 768px) {
+    /* CSS col-md */
+
+    .champions__list {
+        &>.row__list {
+            margin-top: 40px;
+            gap: 1rem;
+        }
+    }
+}

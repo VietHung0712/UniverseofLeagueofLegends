@@ -1,7 +1,7 @@
 import { memo, useState, useRef } from "react";
 import ROUTERS from "../../../utils/router";
 import { Link } from "react-router-dom";
-import './style.css';
+import styles from './style.module.css';
 
 const Header = () => {
     const [menus] = useState([
@@ -19,15 +19,15 @@ const Header = () => {
             name: "Alt Universe",
             path: "",
             child: [
-                { name: "Coven", path: "" },
-                { name: "Spirit Blossom", path: "" },
-                { name: "K/DA", path: "" },
-                { name: "Mythmaker", path: "" }
+                { name: "Spirit Blossom", path: ROUTERS.SPIRITBLOSSOM },
+                { name: "K/DA", path: ROUTERS.KDA },
+                { name: "Mythmaker", path: ROUTERS.MYTHMAKER }
             ]
         },
         {
             name: "Explore",
-            path: ""
+            path: ROUTERS.EXPLORE,
+            child: []
         }
     ]);
 
@@ -45,32 +45,32 @@ const Header = () => {
     }
 
     return (
-        <header>
-            <div>
-                <div className="divBtn">
-                    <button className="btnOpen" onClick={handleClickBtn}>
+        <header className={styles.header}>
+            <div className={styles.header__relative}>
+                <div className={styles.divBtn}>
+                    <button className={styles.btnOpen} onClick={handleClickBtn}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-list" viewBox="0 0 16 16">
                             <path fillRule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
                         </svg>
                     </button>
                 </div>
-                <div className="header__brand">
-                    <div>
-                        <Link to={ROUTERS.HOME}>
+                <div className={styles.header__brand}>
+                    <div className={styles.header__brand_item}>
+                        <Link className={styles.a} to={ROUTERS.HOME}>
                             <img src="https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/Others/League_of_Legends_icon.svg" alt="" />
                         </Link>
                     </div>
-                    <div>
-                        <Link to={ROUTERS.HOME}>
+                    <div className={styles.header__brand_item}>
+                        <Link className={styles.a} to={ROUTERS.HOME}>
                             <span>Universe</span>
                         </Link>
                     </div>
                 </div>
-                <div className="header__menus" ref={boxRef}>
+                <div className={styles.header__menus} ref={boxRef}>
                     <img src="https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/Others/ahri.avif" alt="" />
                     <img src="https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/Others/LeagueofLegends.webp" alt="" />
-                    <div className="divBtn">
-                        <button className="btnClose" onClick={handleClickBtn}>
+                    <div className={styles.divBtn}>
+                        <button className={styles.btnClose} onClick={handleClickBtn}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-x" viewBox="0 0 16 16">
                                 <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
                             </svg>
@@ -79,7 +79,7 @@ const Header = () => {
                     {
                         menus?.map((item, key) => (
                             <div key={key}>
-                                <Link to={item.path}>
+                                <Link className={styles.a} to={item.path}>
                                     <p className="transition200ms">
                                         {item.name}
                                         {item.child?.length > 0 && (
@@ -91,11 +91,11 @@ const Header = () => {
                                 </Link>
                                 {
                                     item.child && (
-                                        <ul className={item.child?.length > 0 ? "header__menus--dropdown active" : "header__menus--dropdown"}>
+                                        <ul className={`${styles.header__menus_dropdown} ${item.child?.length > 0 ? styles.active : ''}`}>
                                             {
                                                 item.child?.map((childItem, childKey) => (
                                                     <li key={childKey}>
-                                                        <Link to={childItem.path}>{childItem.name}</Link>
+                                                        <Link className={styles.a} to={childItem.path}>{childItem.name}</Link>
                                                     </li>
                                                 ))
                                             }

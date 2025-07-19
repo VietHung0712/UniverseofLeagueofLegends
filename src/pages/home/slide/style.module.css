@@ -38,7 +38,7 @@ section#slide {
         }
     }
 
-    .container-fluid {
+    .slide__ctr {
         overflow: hidden;
 
         #slideLate {
@@ -171,7 +171,7 @@ section#slide {
 
 @media (min-width: 768px) {
     section#slide {
-        .container-fluid {
+        .slide__ctr {
             #divBtnLate {
                 display: block;
             }

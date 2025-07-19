@@ -1,4 +1,4 @@
-header {
+.header {
     position: fixed;
     top: 0;
     left: 0;
@@ -8,7 +8,7 @@ header {
     background-color: #111111;
     font-family: Arial, Helvetica, sans-serif !important;
 
-    a {
+    .a {
         text-decoration: none;
         color: #f9f9f9;
         text-transform: uppercase;
@@ -22,8 +22,8 @@ header {
         margin: 0;
     }
 
-    button.btnClose,
-    button.btnOpen {
+    .btnClose,
+    .btnOpen {
         position: absolute;
         right: 0%;
         top: 50%;
@@ -41,7 +41,7 @@ header {
         }
     }
 
-    &>div {
+    &>.header__relative {
         position: relative;
         height: 100%;
         width: 90%;
@@ -57,7 +57,7 @@ header {
             display: flex;
             gap: 1rem;
 
-            &>div {
+            &>.header__brand_item {
                 height: 100%;
 
                 &>a {
@@ -111,7 +111,7 @@ header {
                 }
 
                 &:hover {
-                    &>.header__menus--dropdown {
+                    &>.header__menus_dropdown {
                         display: block;
                     }
                 }
@@ -131,7 +131,7 @@ header {
                     }
                 }
 
-                &>.header__menus--dropdown {
+                &>.header__menus_dropdown {
                     display: none;
                     height: max-content;
                     min-width: 100%;
@@ -162,12 +162,12 @@ header {
 
 @media (min-width: 768px) {
 
-    header {
+    .header {
         .divBtn {
             display: none;
         }
 
-        &>div {
+        &>.header__relative {
 
             &>.header__menus {
                 position: relative;
@@ -199,7 +199,7 @@ header {
                         }
                     }
 
-                    &>.header__menus--dropdown {
+                    &>.header__menus_dropdown {
                         position: absolute;
                         top: 70px;
                         left: 0;
@@ -240,6 +240,18 @@ header {
 
             &>.header__menus {
                 margin-left: 50px;
+            }
+        }
+    }
+}
+
+@media (min-width: 768px) {
+
+    header {
+
+        &>div {
+
+            &>.header__menus {
 
                 img {
                     display: none;

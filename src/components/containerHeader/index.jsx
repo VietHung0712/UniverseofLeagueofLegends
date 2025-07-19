@@ -1,13 +1,13 @@
 import { memo } from "react";
-import './style.css';
+import styles from './style.module.css';
 
-const ContainerHeader = ({ content, img = false, src = "" }) => {
+const ContainerHeader = ({ content, src = "" }) => {
     return (
-        <div className="container__head">
+        <div className={styles.container__head}>
             {
-                img
-                    ? <img src={src} width="30" alt="" />
-                    : <i className={src}></i>
+                src.trim().length !== 0 && (
+                    <img src={src} width="30" alt="" />
+                )
             }
             <h1>{content}</h1>
         </div>
