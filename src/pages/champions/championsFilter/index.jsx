@@ -1,28 +1,35 @@
 import { memo, useRef, useState } from "react";
 import styles from "./style.module.css";
 
-function ChampionsFilter({ onChangeSort }) {
+function ChampionsFilter({ onChangeSort, onChangeSearch }) {
 
     const ulRef = useRef(null);
-    const [openClickSelect, setOpenClickSelect] = useState(true);
+    const [openClickSelect, setOpenClickSelect] = useState(false);
+    const [inputValue, setInputValue] = useState("");
+
+    const eventInput = (e) => {
+        const val = e.target.value.toString();
+        setInputValue(val);
+        onChangeSearch(val);
+    };
 
     const onClickOpenSelect = () => {
         setOpenClickSelect(!openClickSelect);
     }
 
-    const handleSelect = (value) => {
-        onChangeSort(value);
+    const handleSelect = (index) => {
+        onChangeSort(index);
     };
 
     return (
         <div id={styles.filter} className="transition200ms position-fixed z-1 w-100">
             <div className={`${styles.ctr} container h-100 flex-center`}>
                 <div className="row w-100 h-100 justify-content-between">
-                    <div className="col-md-7 h-100 flex-center justify-content-start">
+                    <div className="col-lg-7 col-12 h-100 flex-center justify-content-start">
                         <img className="object-fit-contain me-4" src="https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/Others/content_type_icon_champion__3nwJQ.png" height="35" width="35" alt="" />
-                        <input className="border-0 w-50 fw-bold text-uppercase text-color-1 font-monospace font-size-14 letter-spacing-4 bg-transparent" type="input" placeholder="Find a champion" />
+                        <input value={inputValue} onInput={eventInput} className="border-0 w-50 fw-bold text-uppercase text-color-1 font-monospace font-size-14 letter-spacing-4 bg-transparent" type="input" placeholder="Find a champion" />
                     </div>
-                    <div className="col-md-4 h-100">
+                    <div className="col-lg-4 h-100 d-none d-lg-block">
                         <div onClick={onClickOpenSelect} className={`${styles.filterSort} ${openClickSelect ? styles.bgRadial : ''} position-relative h-100 flex-center`}>
                             <div className="m-0 text-color-3">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" className="bi bi-sort-down" viewBox="0 0 16 16">

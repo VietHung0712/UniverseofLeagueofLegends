@@ -12,6 +12,7 @@ const ChampionsPage = () => {
     const { data: regions, loading2, error2 } = useRegions();
 
     const [selectedIndex, setSelectedIndex] = useState(0);
+    const [inputValue, setInputValue] = useState(0);
 
     if (loading1) return (<Loading />);
     if (error1) return <div>Error: {error1.message || "Something went wrong."}</div>;
@@ -21,9 +22,9 @@ const ChampionsPage = () => {
 
     return (
         <main id={styles.main}>
-            <ChampionsFilter onChangeSort={setSelectedIndex} />
+            <ChampionsFilter onChangeSort={setSelectedIndex} onChangeSearch={setInputValue} />
             <ChampionsHeader />
-            <ChampionsList index={selectedIndex} champions={champions} regions={regions} />
+            <ChampionsList valueSearch={inputValue} indexSort={selectedIndex} champions={champions} regions={regions} />
         </main>
     );
 };

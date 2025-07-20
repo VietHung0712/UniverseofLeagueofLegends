@@ -85,6 +85,10 @@ a {
     transition: all 300ms ease-in-out;
 }
 
+.transition400ms {
+    transition: all 400ms ease-in-out;
+}
+
 .vh-25 {
     height: 25vh !important;
 }

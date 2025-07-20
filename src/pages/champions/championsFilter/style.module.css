@@ -23,7 +23,7 @@
             z-index: 1;
 
             &:hover {
-                background-image: linear-gradient(to right, var(--color6-), #ffffff12, var(--color6-));
+                background-image: linear-gradient(to right, var(--color6-), #40404012, var(--color6-));
             }
         }
 
@@ -34,15 +34,17 @@
         }
 
         ul {
-            top: -200%;
-            opacity: 0;
+            top: -100%;
             left: 0;
+            opacity: 0;
+            visibility: hidden;
             background-color: var(--color6-);
-            background-image: linear-gradient(to right, var(--color6-), #ffffff12, var(--color6-));
+            background-image: linear-gradient(to right, var(--color6-), #40404012, var(--color6-));
 
             &.active {
                 top: 100%;
                 opacity: 1;
+                visibility: visible;
             }
 
             li {
@@ -60,6 +62,14 @@
 }
 
 @media (min-width: 768px) {
+    /* CSS col-md */
+
+    #filter {
+        display: block;
+    }
+}
+
+@media (min-width: 992px) {
     /* CSS col-md */
 
     #filter {

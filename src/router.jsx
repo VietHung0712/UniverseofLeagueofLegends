@@ -18,6 +18,30 @@ const renderRouterUser = () => {
         {
             path: ROUTERS.REGIONS,
             component: <RegionsPage />
+        },
+        {
+            path: ROUTERS.CHAMPION,
+            component : null
+        },
+        {
+            path: ROUTERS.REGION,
+            component : null
+        },
+        {
+            path: ROUTERS.EXPLORE,
+            component : null
+        },
+        {
+            path: ROUTERS.KDA,
+            component : null
+        },
+        {
+            path: ROUTERS.SPIRITBLOSSOM,
+            component : null
+        },
+        {
+            path: ROUTERS.MYTHMAKER,
+            component : null
         }
     ];
 

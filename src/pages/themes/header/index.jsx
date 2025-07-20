@@ -1,6 +1,6 @@
-import { memo, useState, useRef } from "react";
+import { memo, useState, useRef, useEffect } from "react";
 import ROUTERS from "../../../utils/router";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import styles from './style.module.css';
 
 const Header = () => {
@@ -17,7 +17,7 @@ const Header = () => {
         },
         {
             name: "Alt Universe",
-            path: "",
+            path: null,
             child: [
                 { name: "Spirit Blossom", path: ROUTERS.SPIRITBLOSSOM },
                 { name: "K/DA", path: ROUTERS.KDA },
@@ -32,16 +32,15 @@ const Header = () => {
     ]);
 
     const boxRef = useRef();
-    const [isVisible, setIsVisible] = useState(true);
+    const location = useLocation();
+    const [isVisible, setIsVisible] = useState(false);
+
+    useEffect(() => {
+        setIsVisible(false);
+    }, [location]);
 
     const handleClickBtn = () => {
-        if (isVisible) {
-            boxRef.current.style.left = '0';
-        } else {
-            boxRef.current.style.left = '100%';
-        }
         setIsVisible(prev => !prev);
-
     }
 
     return (
@@ -66,7 +65,7 @@ const Header = () => {
                         </Link>
                     </div>
                 </div>
-                <div className={styles.header__menus} ref={boxRef}>
+                <div className={`${styles.header__menus} ${isVisible ? styles.active : ''}`} ref={boxRef}>
                     <img src="https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/Others/ahri.avif" alt="" />
                     <img src="https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/Others/LeagueofLegends.webp" alt="" />
                     <div className={styles.divBtn}>

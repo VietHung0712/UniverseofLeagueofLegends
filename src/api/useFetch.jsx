@@ -8,25 +8,31 @@ export const useFetch = (endpoint) => {
 
   useEffect(() => {
     let isMounted = true;
-    const fetchAPI = async () => {
-      try {
-        const result = await fetchData(endpoint);
-        if (isMounted) {
-          setData(result);
-          setError(null);
+    const timer = setTimeout(() => {
+      const fetchAPI = async () => {
+        try {
+          const result = await fetchData(endpoint);
+          if (isMounted) {
+            setData(result);
+            setError(null);
+          }
+        } catch (err) {
+          if (isMounted) {
+            setError(err);
+            setData([]);
+          }
+        } finally {
+          if (isMounted) setLoading(false);
         }
-      } catch (err) {
-        if (isMounted) {
-          setError(err);
-          setData([]);
-        }
-      } finally {
-        if (isMounted) setLoading(false);
-      }
-    };
+      };
 
-    fetchAPI();
-    return () => { isMounted = false; };
+      fetchAPI();
+    }, 200);
+
+    return () => {
+      isMounted = false;
+      clearTimeout(timer);
+    };
   }, [endpoint]);
 
   return { data, loading, error };

@@ -3,35 +3,42 @@ import Champion from "../../components/champion";
 import ContainerHeader from "../../components/containerHeader";
 import styles from "./style.module.css";
 
-const ChampionsList = ({ index, champions, regions }) => {
+const ChampionsList = ({ valueSearch, indexSort, champions, regions }) => {
+
+    let filteredChampions = [...champions];
+
+    if (valueSearch != "") {
+        filteredChampions = filteredChampions.filter(champion =>
+            champion.id.toLowerCase().startsWith(valueSearch.toLowerCase())
+        );
+    }
+
+    if (indexSort === 0) {
+        filteredChampions.sort((a, b) => a.id.localeCompare(b.id));
+    } else if (indexSort === 1) {
+        filteredChampions.sort((a, b) => b.release_date.localeCompare(a.release_date));
+    }
 
     const grouped = regions?.map(region => ({
         region: region.name,
-        champions: champions.filter(ch => ch.region === region.id)
+        champions: filteredChampions.filter(ch => ch.region === region.id)
     }));
 
-    if (index === 0) {
-        champions.sort((a, b) => a.id.localeCompare(b.id));
-    } else if (index === 1) {
-        champions.sort((a, b) => b.release_date.localeCompare(a.release_date));
-    }
-
     return (
-        <section id="container">
+        <section id={styles.container}>
             <div>
                 {
-                    index === 2 ?
+                    indexSort === 2 ?
                         (
-                            grouped?.map((item, key) => (
+                            grouped?.map((item, key) => item.champions.length > 0 && (
                                 <div key={key}>
                                     <ContainerHeader content={item.region} />
                                     <ContainerMain array={item.champions} regions={regions} />
                                 </div>
                             ))
-
                         ) :
                         (
-                            <ContainerMain array={champions} regions={regions} />
+                            <ContainerMain array={filteredChampions} regions={regions} />
                         )
                 }
             </div>
@@ -54,12 +61,10 @@ const ContainerMain = ({ array, regions }) => {
     }
 
     return (
-        <div>
-            <div className={`${styles.champions__list} container-fluid`}>
-                {
-                    rows
-                }
-            </div>
+        <div className={`${styles.champions__list} container-fluid`}>
+            {
+                rows
+            }
         </div>
     )
 }

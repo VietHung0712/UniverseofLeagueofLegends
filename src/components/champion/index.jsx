@@ -1,4 +1,4 @@
-// import { memo } from "react";
+import { memo } from "react";
 import { Link, generatePath } from "react-router-dom";
 import { getRegionName } from "../../utils/functions";
 import ROUTERS from "../../utils/router";
@@ -46,4 +46,4 @@ const Champion = ({ champion, regions }) => {
     )
 }
 
-export default Champion;
+export default memo(Champion);
