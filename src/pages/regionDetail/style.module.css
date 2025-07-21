@@ -1,0 +1,68 @@
+.hero__splashArt {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+        object-fit: contain;
+        z-index: 2;
+    }
+}
+
+#story {
+    height: max-content;
+    padding-top: 5vh;
+    margin-bottom: 5vh;
+}
+
+#listChamps {
+    /* padding-top: 10vh; */
+
+    .ctr {
+        opacity: 0;
+        transform: translateY(25vh);
+        transition: all 1s .3s ease-in-out;
+    }
+
+    .ctrHeaderImg {
+        position: absolute;
+        top: 0;
+        left: 15%;
+        opacity: .2;
+        filter: grayscale(100%);
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 70%;
+        height: 450px;
+    }
+
+    .champions__cover {
+        position: absolute;
+        height: 50%;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+        background-color: #000000c0;
+
+        button {
+            background-color: var(--color6-);
+            border-image: linear-gradient(180deg, #c3a758, #6b521e) stretch;
+            border-style: solid;
+            border-image-slice: 1;
+            font-weight: 400;
+            padding: 23px 48px;
+            min-width: 375px;
+        }
+    }
+
+    .spanIcon {
+        svg {
+            transform: rotateZ(90deg);
+        }
+    }
+}
+
+@media (min-width: 1200px) {
+    /* CSS col-xl */
+}

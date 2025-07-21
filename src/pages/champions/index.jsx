@@ -1,4 +1,4 @@
-import { memo, useState } from "react";
+import { memo, useState, useEffect } from "react";
 import { useChampions, useRegions } from "../../api/useModel";
 import Loading from "../../components/loading";
 import ChampionsList from "../../components/championsList";
@@ -7,6 +7,10 @@ import ChampionsFilter from "./championsFilter";
 import styles from './style.module.css';
 
 const ChampionsPage = () => {
+
+    useEffect(() => {
+        document.title = "Champions - Universe of League of Legends";
+    });
 
     const { data: champions, loading1, error1 } = useChampions();
     const { data: regions, loading2, error2 } = useRegions();
@@ -24,7 +28,9 @@ const ChampionsPage = () => {
         <main id={styles.main}>
             <ChampionsFilter onChangeSort={setSelectedIndex} onChangeSearch={setInputValue} />
             <ChampionsHeader />
-            <ChampionsList valueSearch={inputValue} indexSort={selectedIndex} champions={champions} regions={regions} />
+            <section>
+                <ChampionsList valueSearch={inputValue} indexSort={selectedIndex} champions={champions} regions={regions} />
+            </section>
         </main>
     );
 };

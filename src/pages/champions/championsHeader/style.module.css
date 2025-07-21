@@ -1,11 +1,12 @@
 #header {
     height: 225px;
-    padding-top: 50px;
+    display: flex;
+    align-items: center;
 }
 
 @media (min-width: 768px) {
     #header {
         height: 290px;
-        padding-top: 160px;
+        padding-top: 100px;
     }
 }

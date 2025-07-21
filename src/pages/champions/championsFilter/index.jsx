@@ -1,16 +1,43 @@
-import { memo, useRef, useState } from "react";
+import { memo, useRef, useState, useEffect } from "react";
+import { scrollToTop } from "../../../utils/functions";
 import styles from "./style.module.css";
 
 function ChampionsFilter({ onChangeSort, onChangeSearch }) {
 
     const ulRef = useRef(null);
+    const filterRef = useRef(null);
+    const lastScrollY = useRef(0);
+
     const [openClickSelect, setOpenClickSelect] = useState(false);
     const [inputValue, setInputValue] = useState("");
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const filter = filterRef?.current;
+            const currentScrollY = window.scrollY;
+
+            if (currentScrollY > lastScrollY.current) {
+                filter.style.top = 0;
+            } else if (currentScrollY < lastScrollY.current) {
+                filter.style.top = 122 + 'px';
+            }
+
+            lastScrollY.current = currentScrollY;
+        };
+
+        window.addEventListener("scroll", () => {
+            handleScroll();
+            setOpenClickSelect(false);
+        });
+
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     const eventInput = (e) => {
         const val = e.target.value.toString();
         setInputValue(val);
         onChangeSearch(val);
+        scrollToTop();
     };
 
     const onClickOpenSelect = () => {
@@ -19,10 +46,11 @@ function ChampionsFilter({ onChangeSort, onChangeSearch }) {
 
     const handleSelect = (index) => {
         onChangeSort(index);
+        scrollToTop();
     };
 
     return (
-        <div id={styles.filter} className="transition200ms position-fixed z-1 w-100">
+        <div id={styles.filter} ref={filterRef} className="transition200ms position-fixed z-1 w-100">
             <div className={`${styles.ctr} container h-100 flex-center`}>
                 <div className="row w-100 h-100 justify-content-between">
                     <div className="col-lg-7 col-12 h-100 flex-center justify-content-start">

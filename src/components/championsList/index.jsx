@@ -13,19 +13,31 @@ const ChampionsList = ({ valueSearch, indexSort, champions, regions }) => {
         );
     }
 
+    if (champions.length > 0 && filteredChampions.length === 0) {
+        return (
+            <section id={styles.container}>
+                <div className={`${styles.row__list} row`}>
+                    <div className="col-12 text-center text-color-1 text-uppercase letter-spacing-3 p-5">No Champions Found</div>
+                </div>
+            </section>
+        )
+    }
+
+    let grouped = [];
+
     if (indexSort === 0) {
         filteredChampions.sort((a, b) => a.id.localeCompare(b.id));
     } else if (indexSort === 1) {
         filteredChampions.sort((a, b) => b.release_date.localeCompare(a.release_date));
+    } else if (indexSort === 2) {
+        grouped = regions?.map(region => ({
+            region: region.name,
+            champions: filteredChampions.filter(ch => ch.region === region.id)
+        }));
     }
 
-    const grouped = regions?.map(region => ({
-        region: region.name,
-        champions: filteredChampions.filter(ch => ch.region === region.id)
-    }));
-
     return (
-        <section id={styles.container}>
+        <div id={styles.container}>
             <div>
                 {
                     indexSort === 2 ?
@@ -42,7 +54,7 @@ const ChampionsList = ({ valueSearch, indexSort, champions, regions }) => {
                         )
                 }
             </div>
-        </section>
+        </div>
     )
 }
 

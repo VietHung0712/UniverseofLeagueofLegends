@@ -3,7 +3,8 @@ import { Routes, Route } from 'react-router-dom';
 import MasterLayout from './pages/themes/masterLayout';
 import HomePage from './pages/home';
 import ChampionsPage from './pages/champions';
-import RegionsPage from './pages/regions'
+import RegionsPage from './pages/regions';
+import RegionDetail from './pages/regionDetail';
 
 const renderRouterUser = () => {
     const userRouters = [
@@ -25,7 +26,7 @@ const renderRouterUser = () => {
         },
         {
             path: ROUTERS.REGION,
-            component : null
+            component : <RegionDetail />
         },
         {
             path: ROUTERS.EXPLORE,

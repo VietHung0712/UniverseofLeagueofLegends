@@ -15,6 +15,21 @@ export function getRegionName(regions) {
         const region = regions[i];
         result[region.id] = region.name;
     }
-
     return result;
 }
+
+export function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+export function scrollWithOffset(ref, offset = 80) {
+    const element = ref.current;
+    if (!element) return;
+
+    const top = element.getBoundingClientRect().top + window.pageYOffset - offset;
+
+    window.scrollTo({
+        top,
+        behavior: 'smooth'
+    });
+};

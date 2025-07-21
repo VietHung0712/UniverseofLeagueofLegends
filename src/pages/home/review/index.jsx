@@ -1,5 +1,5 @@
 import { memo, useRef, useState } from "react";
-// import { animationSlide } from "../../../utils/functions";
+import { scrollWithOffset } from "../../../utils/functions";
 import { Link, generatePath } from "react-router-dom";
 import { useRegions } from "../../../api/useModel";
 import ROUTERS from "../../../utils/router";
@@ -52,7 +52,7 @@ const Content = ({ regions }) => {
             avatars[dir].style.opacity = 1;
             avatars[dir].style.transform = 'scale(1.4)';
             setActiveIndex(dir);
-            contentRef.current?.scrollIntoView({ behavior: 'smooth' });
+            scrollWithOffset(contentRef);
         } else {
             setIsFirstClick(true);
             container.style.transform = 'translate(-50%, -50%) scale(1)';
@@ -64,7 +64,7 @@ const Content = ({ regions }) => {
     };
 
     return (
-        <div className={`${styles.container__main} container-fluid`} ref={contentRef}>
+        <div className="container-fluid" ref={contentRef}>
             <div className="row">
                 <div className={`${styles.borBackgroundImage} col-11 m-auto position-relative overflow-hidden`}>
                     <button className={`${styles.btnClose} ${styles.elActive} position-absolute z-1 bg-black border-0 text-white rounded-circle transition300ms ${!isFirstClick ? styles.active : ''}`} onClick={handleBackground}>

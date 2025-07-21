@@ -1,0 +1,60 @@
+#main {
+    background-image: linear-gradient(to bottom, #000000cf), url('https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/Others/Runeterra_Terrain_map.webp');
+}
+
+#title {
+    height: 40vh;
+
+    h1 {
+        font-size: 4rem;
+        color: #f0e6d2;
+    }
+}
+
+#container {
+    .rowCtr {
+        &>div {
+            height: 200px;
+
+            a {
+                border: 1px solid var(--color4-);
+
+                img:first-child {
+                    background-image: linear-gradient(#000000);
+                }
+
+                div:nth-child(2) {
+                    background-color: rgba(0, 0, 0, 0.5);
+                }
+
+                img:nth-child(3) {
+                    top: 10%;
+                    opacity: 1;
+                }
+
+                div:last-child {
+                    background-color: var(--color6-);
+
+                    h3 {
+                        color: var(--color1-);
+                        font-size: 24px;
+                    }
+                }
+
+                &:hover {
+                    border: 1px solid var(--color1-);
+
+                    div:nth-child(2) {
+                        background-color: rgba(0, 0, 0, 0);
+                    }
+
+                    img:nth-child(3) {
+                        opacity: 0;
+                    }
+                }
+            }
+
+
+        }
+    }
+}

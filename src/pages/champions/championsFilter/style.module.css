@@ -23,7 +23,7 @@
             z-index: 1;
 
             &:hover {
-                background-image: linear-gradient(to right, var(--color6-), #40404012, var(--color6-));
+                background-image: linear-gradient(to right, var(--color6-), #40404020, var(--color6-));
             }
         }
 
@@ -39,7 +39,7 @@
             opacity: 0;
             visibility: hidden;
             background-color: var(--color6-);
-            background-image: linear-gradient(to right, var(--color6-), #40404012, var(--color6-));
+            background-image: linear-gradient(to right, var(--color6-), #40404020, var(--color6-));
 
             &.active {
                 top: 100%;

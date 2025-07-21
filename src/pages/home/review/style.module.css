@@ -10,14 +10,6 @@ section#review {
         }
     }
 
-    .container__head {
-        padding-bottom: 0;
-    }
-
-    .container__main {
-        padding-top: 80px;
-    }
-
     .borBackgroundImage {
         height: auto;
         /**/
