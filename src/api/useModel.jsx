@@ -16,6 +16,10 @@ export const useRelations = () => {
     return useFetch('https://raw.githubusercontent.com/VietHung0712/universelol_be/refs/heads/main/src/json/relations.json');
 }
 
-export const useMaps = () => {
-    return useFetch('https://raw.githubusercontent.com/VietHung0712/universelol_be/refs/heads/main/src/json/maps.json');
+export const useRegionGallerys = () => {
+    return useFetch('https://raw.githubusercontent.com/VietHung0712/universelol_be/refs/heads/main/src/json/regionGallerys.json');
+}
+
+export const useModels = () => {
+    return useFetch('https://raw.githubusercontent.com/VietHung0712/universelol_be/refs/heads/main/src/json/models.json');
 }

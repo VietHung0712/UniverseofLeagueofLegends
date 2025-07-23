@@ -3,7 +3,7 @@ import styles from "./style.module.css";
 
 const HeroUniverse = ({ item, customStyle }) => {
     return (
-        <section id={styles.hero}>
+        <div id={styles.hero}>
             <div className={`${styles.hero__splashArt} ${customStyle}`}>
                 <img
                     style={{ objectPosition: item.px + '%' + item.py + '%' }}
@@ -27,7 +27,7 @@ const HeroUniverse = ({ item, customStyle }) => {
                     </span>
                 </h3>
             </div>
-        </section>
+        </div>
     )
 }
 

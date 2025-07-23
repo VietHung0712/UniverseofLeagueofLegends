@@ -1,27 +1,11 @@
-.hero__splashArt {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    img {
-        object-fit: contain;
-        z-index: 2;
-    }
-}
-
-#story {
-    height: max-content;
-    padding-top: 5vh;
-    margin-bottom: 5vh;
-}
-
 #listChamps {
     /* padding-top: 10vh; */
 
     .ctr {
         opacity: 0;
-        transform: translateY(25vh);
+        transform: translateY(100px);
         transition: all 1s .3s ease-in-out;
+        visibility: hidden;
     }
 
     .ctrHeaderImg {
@@ -61,8 +45,4 @@
             transform: rotateZ(90deg);
         }
     }
-}
-
-@media (min-width: 1200px) {
-    /* CSS col-xl */
 }
