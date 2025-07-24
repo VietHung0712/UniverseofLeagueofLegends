@@ -1,7 +1,7 @@
 import { memo } from "react";
 import styles from './style.module.css';
 
-const ContainerHeader = ({ content, src = "" }) => {
+const ContainerHeader = ({ content, customFontSize = 14, src = "" }) => {
     return (
         <div className={styles.container__head}>
             {
@@ -9,7 +9,7 @@ const ContainerHeader = ({ content, src = "" }) => {
                     <img src={src} width="30" alt="" />
                 )
             }
-            <h1>{content}</h1>
+            <h1 style={{ fontSize: customFontSize + 'px' }}>{content}</h1>
         </div>
     )
 }

@@ -28,6 +28,8 @@
         }
 
         h1 {
+            display: block;
+            min-width: 100px;
             span {
                 margin: 0 10px;
             }

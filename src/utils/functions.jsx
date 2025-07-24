@@ -33,3 +33,41 @@ export function scrollWithOffset(ref, offset = 80) {
         behavior: 'smooth'
     });
 };
+
+export function scrollHorizontal(container) {
+    let isDragging = false;
+    let startX = 0;
+    let value = 0;
+
+    container.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        startX = e.pageX;
+        container.classList.add('dragging');
+    });
+
+    container.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        e.preventDefault();
+
+        const deltaX = e.pageX - startX;
+        if (deltaX > 0) {
+            value = -container.offsetWidth / 3;
+        } else {
+            value = container.offsetWidth / 3;
+        }
+
+        container.scrollBy({
+            left: value,
+            behavior: 'smooth'
+        });
+
+        startX = e.pageX;
+    });
+
+    ['mouseup', 'mouseleave'].forEach(event =>
+        container.addEventListener(event, () => {
+            isDragging = false;
+            container.classList.remove('dragging');
+        })
+    );
+}

@@ -6,9 +6,9 @@ import Loading from "../../../components/loading";
 import styles from "./style.module.css";
 
 const Container = ({ region }) => {
-    const { data: champions, loading2, error2 } = useChampions();
-    if (loading2) return (<Loading />);
-    if (error2) return <div>Error: {error2.message || "Something went wrong."}</div>;
+    const { data: champions, loading, error } = useChampions();
+    if (loading) return (<Loading />);
+    if (error) return <div>Error: {error.message || "Something went wrong."}</div>;
     const championsOfRegion = champions.filter(item => item.region === region.id).sort((a, b) => a.id.localeCompare(b.id));
 
     return (

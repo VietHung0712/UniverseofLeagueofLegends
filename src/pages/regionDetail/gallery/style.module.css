@@ -1,0 +1,11 @@
+.gallery {
+    column-gap: 20px;
+    height: 500px;
+    scroll-snap-type: x mandatory;
+    cursor: pointer;
+}
+
+.gallery__item {
+    scroll-snap-align: center;
+    min-width: 75%;
+}

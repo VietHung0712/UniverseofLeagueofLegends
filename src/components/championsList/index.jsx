@@ -28,7 +28,11 @@ const ChampionsList = ({ valueSearch, indexSort, champions, regions }) => {
     if (indexSort === 0) {
         filteredChampions.sort((a, b) => a.id.localeCompare(b.id));
     } else if (indexSort === 1) {
-        filteredChampions.sort((a, b) => b.release_date.localeCompare(a.release_date));
+        filteredChampions.sort((a, b) => {
+            if (!a.release_date) return 1;
+            if (!b.release_date) return -1;
+            return b.release_date.localeCompare(a.release_date);
+        });
     } else if (indexSort === 2) {
         grouped = regions?.map(region => ({
             region: region.name,
@@ -44,7 +48,7 @@ const ChampionsList = ({ valueSearch, indexSort, champions, regions }) => {
                         (
                             grouped?.map((item, key) => item.champions.length > 0 && (
                                 <div key={key}>
-                                    <ContainerHeader content={item.region} />
+                                    <ContainerHeader customFontSize={24} content={item.region} />
                                     <ContainerMain array={item.champions} regions={regions} />
                                 </div>
                             ))

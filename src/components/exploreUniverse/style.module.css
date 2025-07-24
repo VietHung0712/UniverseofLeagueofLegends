@@ -1,0 +1,33 @@
+.a {
+    height: 300px;
+    border: 1px solid transparent;
+    transform: scale(0.95);
+
+    &>div {
+        background-color: #000000d6;
+        opacity: 0;
+
+        div {
+            font-size: 24px;
+        }
+    }
+
+    p {
+        background-color: #000000ad;
+        border-top: 1px solid var(--color3-);
+        opacity: 1;
+    }
+
+    &:hover {
+        border: 1px solid var(--color3-);
+        transform: scale(1);
+
+        &>div {
+            opacity: 1;
+        }
+
+        p {
+            opacity: 0;
+        }
+    }
+}

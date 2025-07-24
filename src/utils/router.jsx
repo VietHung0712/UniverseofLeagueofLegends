@@ -1,13 +1,13 @@
 const ROUTERS = {
-    HOME: "/",
-    CHAMPION: "/champion/:id",
-    CHAMPIONS: "/champions",
-    REGIONS: "/regions",
-    REGION: "/region/:id",
-    EXPLORE : "/explore",
-    KDA : "/kda",
-    MYTHMAKER : "/mythmaker",
-    SPIRITBLOSSOM : "/spirit-blossom"
+    HOME: "/UniverseofLeagueofLegends/",
+    CHAMPION: "/UniverseofLeagueofLegends/champion/:id",
+    CHAMPIONS: "/UniverseofLeagueofLegends/champions",
+    REGIONS: "/UniverseofLeagueofLegends/regions",
+    REGION: "/UniverseofLeagueofLegends/region/:id",
+    EXPLORE : "/UniverseofLeagueofLegends/explore",
+    KDA : "/UniverseofLeagueofLegends/kda",
+    MYTHMAKER : "/UniverseofLeagueofLegends/mythmaker",
+    SPIRITBLOSSOM : "/UniverseofLeagueofLegends/spirit-blossom"
 }
 
 export default ROUTERS;
