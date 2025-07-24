@@ -37,7 +37,7 @@ const Content = ({ gallerys }) => {
                 {
                     gallerys?.map((item, key) => (
                         <div className={`${styles.gallery__item} h-100`} key={key}>
-                            <img className="h-100 w-100 object-fit-cover" src={item.gallery} alt="" />
+                            <img className="h-100 w-100" src={item.gallery} alt="" />
                         </div>
                     ))
                 }

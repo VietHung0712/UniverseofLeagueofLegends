@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, memo } from 'react';
 import { useLocation } from 'react-router-dom';
 
 let lastPath = "";
@@ -18,4 +18,4 @@ function ScrollToTop() {
     return null;
 }
 
-export default ScrollToTop;
+export default memo(ScrollToTop);

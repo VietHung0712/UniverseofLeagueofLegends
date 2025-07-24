@@ -1,4 +1,4 @@
-import { memo, useRef, useState } from "react";
+import { memo, useMemo, useRef, useState } from "react";
 import { generatePath } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { animationSlide } from "../../../utils/functions";
@@ -9,17 +9,17 @@ import Loading from "../../../components/loading";
 import styles from './style.module.css';
 
 const Slide = () => {
-
     const { data: champions, loading, error } = useChampions();
+
+    const latestChampions = useMemo(() => {
+        return [...champions]
+            .sort((a, b) => new Date(b.updated_date) - new Date(a.updated_date))
+            .slice(0, 5);
+    }, [champions]);
+
     if (loading || error) return (<Loading />);
 
-    const latestChampions = [...champions]
-        .sort((a, b) => new Date(b.updated_date) - new Date(a.updated_date))
-        .slice(0, 5);
-
-    return (
-        <Content array={latestChampions} />
-    );
+    return <Content array={latestChampions} />;
 };
 
 const Content = ({ array }) => {

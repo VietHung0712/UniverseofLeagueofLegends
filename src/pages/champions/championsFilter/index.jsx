@@ -19,13 +19,20 @@ function ChampionsFilter({ onChangeSort, onChangeSearch }) {
             const filter = filterRef?.current;
             const currentScrollY = window.scrollY;
 
-            if (currentScrollY > lastScrollY.current) {
-                filter.style.top = 0;
-            } else if (currentScrollY < lastScrollY.current) {
-                filter.style.top = 122 + 'px';
+            if (!filter) return;
+
+            try {
+                if (currentScrollY > lastScrollY.current) {
+                    filter.style.top = 0;
+                } else if (currentScrollY < lastScrollY.current) {
+                    filter.style.top = 122 + 'px';
+                }
+            } catch (error) {
+                console.error(error);
             }
 
             lastScrollY.current = currentScrollY;
+            setOpenClickSelect(false);
         };
 
         window.addEventListener("scroll", () => {

@@ -28,11 +28,13 @@ const Content = ({ region, champions }) => {
             const ctr = containerRef.current;
             const targetPosition = ctr.offsetTop;
             const scrollPosition = window.scrollY + window.innerHeight;
+            console.log(targetPosition, scrollPosition);
 
-            if (scrollPosition >= targetPosition) {
-                ctr.style.opacity = 1;
-                ctr.style.visibility = 'visible';
-                ctr.style.transform = 'translateY(0)';
+            if (scrollPosition >= targetPosition + ctr.offsetHeight / 3) {
+                const ctrItem = ctr.children;
+                ctrItem[2].style.opacity = 1;
+                ctrItem[2].style.visibility = 'visible';
+                ctrItem[2].style.transform = 'translateY(0)';
                 setHasTriggered(true);
             }
         };
@@ -46,10 +48,10 @@ const Content = ({ region, champions }) => {
     };
 
     return (
-        <section id={styles.listChamps} className="position-relative">
+        <section id={styles.listChamps} className="position-relative" ref={containerRef}>
             <ContainerHeader content={`Champions of ${region.name}`} src="https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/Others/content_type_icon_champion__3nwJQ.png" />
             <div className={`${styles.ctrHeaderImg}`} style={{ backgroundImage: `url(${region.avatar})` }}></div>
-            <div className={`${styles.ctr} position-relative`} ref={containerRef}>
+            <div className={`${styles.ctr} position-relative`}>
                 <ChampionsList valueSearch={""} indexSort={0} champions={showAllChampions ? champions : champions?.slice(0, 10)} cover={true} />
                 <div className={`${styles.champions__cover} ${showAllChampions ? 'd-none' : ''}`}>
                     <button onClick={handleShowMore} className="position-absolute-center text-color-3 font-size-14 letter-spacing-2 text-uppercase">

@@ -6,7 +6,7 @@ import styles from "./style.module.css";
 const ExploreUniverse = ({ region1, region2, src1, src2 }) => {
     return (
         <section>
-            <ContainerHeader content={'Runeterra'} src="https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/Regions/runeterra/runeterra_crest_icon.png" />
+            <ContainerHeader content={'Explore'} src="https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/Regions/runeterra/runeterra_crest_icon.png" />
             <Content region1={region1} region2={region2} src1={src1} src2={src2} />
         </section>
     )
@@ -31,7 +31,7 @@ const Content = ({ region1, region2, src1, src2 }) => {
                                 </svg>
                             </div>
                         </div>
-                        <p className="position-absolute start-0 bottom-0 text-color-3 p-3 w-100 text-center letter-spacing-2 font-size-16 text-uppercase transition300ms">
+                        <p className="position-absolute start-0 bottom-0 text-color-3 px-3 py-md-3 w-100 text-center letter-spacing-2 font-size-16 text-uppercase transition300ms">
                             {region1.name}
                         </p>
                     </Link>
@@ -51,7 +51,7 @@ const Content = ({ region1, region2, src1, src2 }) => {
                                 </svg>
                             </div>
                         </div>
-                        <p className="position-absolute start-0 bottom-0 text-color-3 p-3 w-100 text-center letter-spacing-2 font-size-16 text-uppercase transition300ms">
+                        <p className="position-absolute start-0 bottom-0 text-color-3 px-3 py-md-3 w-100 text-center letter-spacing-2 font-size-16 text-uppercase transition300ms">
                             {region2.name}
                         </p>
                     </Link>

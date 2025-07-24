@@ -1,6 +1,6 @@
 .gallery {
     column-gap: 20px;
-    height: 500px;
+    height: 300px;
     scroll-snap-type: x mandatory;
     cursor: pointer;
 }
@@ -8,4 +8,15 @@
 .gallery__item {
     scroll-snap-align: center;
     min-width: 75%;
+    background-color: #000;
+
+    img {
+        object-fit: cover;
+    }
+}
+
+@media (min-width: 768px) {
+    .gallery {
+        height: 500px;
+    }
 }
