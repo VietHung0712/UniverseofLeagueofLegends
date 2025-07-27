@@ -23,3 +23,7 @@ export const useRegionGallerys = () => {
 export const useModels = () => {
     return useFetch('https://raw.githubusercontent.com/VietHung0712/universelol_be/refs/heads/main/src/json/models.json');
 }
+
+export const useRoles = () => {
+    return useFetch('https://raw.githubusercontent.com/VietHung0712/universelol_be/refs/heads/main/src/json/roles.json');
+}

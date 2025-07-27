@@ -28,7 +28,6 @@ const Content = ({ region, champions }) => {
             const ctr = containerRef.current;
             const targetPosition = ctr.offsetTop;
             const scrollPosition = window.scrollY + window.innerHeight;
-            console.log(targetPosition, scrollPosition);
 
             if (scrollPosition >= targetPosition + ctr.offsetHeight / 3) {
                 const ctrItem = ctr.children;

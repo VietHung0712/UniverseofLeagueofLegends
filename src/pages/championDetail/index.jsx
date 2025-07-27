@@ -1,8 +1,8 @@
 import { memo } from "react";
 import { useParams } from "react-router-dom";
-import Process from "./process";
+import Process from "./Process";
 
-const RegionDetail = () => {
+const ChampionDetail = () => {
     const { id } = useParams();
 
     return (
@@ -10,4 +10,4 @@ const RegionDetail = () => {
     );
 };
 
-export default memo(RegionDetail);
+export default memo(ChampionDetail);

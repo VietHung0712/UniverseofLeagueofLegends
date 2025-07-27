@@ -17,7 +17,7 @@ const Content = ({ region1, region2, src1, src2 }) => {
         <div className="container">
             <div className="row">
                 <div className="col-6">
-                    <Link to={src1} className={`${styles.a} h-100 w-100 d-block position-relative transition300ms`}>
+                    <Link to={src1} className={`${styles.a} w-100 d-block position-relative transition300ms`}>
                         <img className="h-100 w-100 object-fit-cover" src={region1.background} alt="" />
                         <div className="position-absolute start-0 top-0 h-100 w-100 transition300ms">
                             <div className="position-absolute-center text-color-3 text-center letter-spacing-2 text-uppercase">
@@ -37,7 +37,7 @@ const Content = ({ region1, region2, src1, src2 }) => {
                     </Link>
                 </div>
                 <div className="col-6">
-                    <Link to={src2} className={`${styles.a} h-100 w-100 d-block position-relative transition300ms`}>
+                    <Link to={src2} className={`${styles.a} w-100 d-block position-relative transition300ms`}>
                         <img className="h-100 w-100 object-fit-cover" src={region2.background} alt="" />
                         <div className="position-absolute start-0 top-0 h-100 w-100 transition300ms">
                             <div className="position-absolute-center text-color-3 text-center letter-spacing-2 text-uppercase">

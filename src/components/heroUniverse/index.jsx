@@ -8,10 +8,17 @@ const HeroUniverse = ({ item, customStyle }) => {
                 <img
                     style={{ objectPosition: item.px + '%' + item.py + '%' }}
                     src={item.img} loading="lazy" alt="" />
-                <video
-                    style={{ objectPosition: item.px + '%' + item.py + '%' }}
-                    src={item.video} autoPlay muted loop>
-                </video>
+                {
+                    item.video !== '' && (
+                        <video
+                            style={{ objectPosition: `${item.px}% ${item.py}%` }}
+                            src={item.video}
+                            autoPlay
+                            muted
+                            loop
+                        ></video>
+                    )
+                }
                 <div></div>
             </div>
             <div className={`${styles.hero__title} transition300ms`}>

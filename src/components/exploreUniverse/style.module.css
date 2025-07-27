@@ -1,5 +1,5 @@
 .a {
-    height: 300px;
+    height: 260px;
     border: 1px solid transparent;
     transform: scale(0.95);
 
@@ -29,5 +29,11 @@
         p {
             opacity: 0;
         }
+    }
+}
+
+@media (min-width: 768px) {
+    .a {
+        height: 315px;
     }
 }

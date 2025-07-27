@@ -6,12 +6,63 @@
 }
 
 .gallery__item {
+    position: relative;
     scroll-snap-align: center;
     min-width: 75%;
     background-color: #000;
 
     img {
         object-fit: cover;
+    }
+
+    button {
+        position: absolute;
+        height: 50px;
+        width: 50px;
+        background-color: #000000ba;
+        border: 0;
+    }
+}
+
+.galleryView {
+    position: relative;
+    z-index: 10;
+    background-color: #000000e1;
+
+    button {
+        position: absolute;
+        height: 50px;
+        width: 50px;
+        background-color: #000000ba;
+        border: 0;
+        transform: translateY(-50%);
+        top: calc(25% / 4);
+        right: 15px;
+        border: 1px solid var(--color3-);
+    }
+
+    &>div {
+        position: relative;
+        height: 75%;
+        width: 100%;
+        border-top: 1px solid var(--color3-);
+        border-bottom: 1px solid var(--color3-);
+    }
+
+    .gallery__item {
+        display: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 100%;
+        width: 75%;
+        border-right: 1px solid var(--color3-);
+        border-left: 1px solid var(--color3-);
+
+        &.active {
+            display: block !important;
+        }
     }
 }
 

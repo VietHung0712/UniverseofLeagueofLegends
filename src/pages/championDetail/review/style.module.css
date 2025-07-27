@@ -1,0 +1,88 @@
+#skins {
+    background-color: #ffffff;
+    padding-bottom: 5vh;
+}
+
+.display {
+    &>div {
+        padding-top: 56.25%;
+    }
+}
+
+.list {
+    &>div {
+        padding-top: 5vh;
+        padding-bottom: 10vh;
+        cursor: pointer;
+
+        &::-webkit-scrollbar-track {
+            background-color: var(--color2-);
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: var(--color3-);
+        }
+
+        &:hover::-webkit-scrollbar-thumb {
+        background-color: var(--color3-);
+    }
+
+        &>div {
+            width: max-content;
+            column-gap: 10px;
+
+            &>div {
+                min-width: 150px;
+                height: auto;
+
+                &>div {
+                    position: relative;
+                    width: 100%;
+                    padding-top: 56.25%;
+
+                    img {
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        top: 0;
+                        left: 0;
+                        object-fit: cover;
+                        user-select: none;
+                        padding: 5px;
+                        border: 1px solid transparent;
+
+                        &.active {
+                            border: 1px solid var(--color1-);
+                        }
+                    }
+
+                    p {
+                        position: absolute;
+                        top: 100%;
+                        width: 100%;
+                        text-align: center;
+                        text-transform: uppercase;
+                        font-size: 12px;
+                        letter-spacing: 1px;
+                        color: var(--color3-);
+                        user-select: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .list {
+        &>div {
+            &>div {
+                column-gap: 30px;
+
+                &>div {
+                    min-width: 230px;
+                }
+            }
+        }
+    }
+}

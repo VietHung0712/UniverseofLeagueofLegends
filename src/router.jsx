@@ -5,6 +5,8 @@ import HomePage from './pages/home';
 import ChampionsPage from './pages/champions';
 import RegionsPage from './pages/regions';
 import RegionDetail from './pages/regionDetail';
+import ChampionDetail from './pages/championDetail';
+import ModelPage from './pages/model';
 
 const renderRouterUser = () => {
     const userRouters = [
@@ -22,11 +24,15 @@ const renderRouterUser = () => {
         },
         {
             path: ROUTERS.CHAMPION,
-            component : null
+            component : <ChampionDetail />
         },
         {
             path: ROUTERS.REGION,
             component : <RegionDetail />
+        },
+        {
+            path: ROUTERS.MODEL,
+            component : <ModelPage />
         },
         {
             path: ROUTERS.EXPLORE,
