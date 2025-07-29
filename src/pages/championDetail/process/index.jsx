@@ -1,10 +1,11 @@
-import { memo, useEffect, useState } from "react";
+import { memo, useEffect, useMemo, useState } from "react";
 import { useChampions } from "../../../api/useModel";
 import Loading from "../../../components/loading";
 import Hero from "../hero";
 import Container from "../container";
 import Review from "../review";
 import Model from "../model";
+import Explore from "../explore";
 
 const Process = ({ id }) => {
     const [champion, setChampion] = useState(null);
@@ -18,6 +19,10 @@ const Process = ({ id }) => {
         }
     }, [id, champions, loading]);
 
+    const championsOfRegion = useMemo(() => {
+        return [...champions].filter(item => (item.region === champion?.region) && (item.id !== champion.id));
+    }, [champions, champion]);
+
     if (loading || !champion) return (<Loading />);
     if (error) return <div>Error: {error.message || "Something went wrong."}</div>;
 
@@ -30,8 +35,9 @@ const Process = ({ id }) => {
         py: champion.position_y
     }
 
-    // const index = champions.indexOf(region);
-    // const aroundRegion = [regions[(index - 1 + regions.length) % regions.length], regions[(index + 1 + regions.length) % regions.length]];
+    let indexRandom1 = Math.floor(Math.random() * championsOfRegion.length);
+    let indexRandom2 = (indexRandom1 + 1 + Math.floor(Math.random() * championsOfRegion.length) + championsOfRegion.length) % championsOfRegion.length;
+    const explore = [championsOfRegion[indexRandom1], championsOfRegion[indexRandom2]];
 
     return (
         <main>
@@ -39,7 +45,7 @@ const Process = ({ id }) => {
             <Container champion={champion} />
             <Review champion={champion} />
             <Model champion={champion} />
-            {/* <Explore regions={aroundRegion} /> */}
+            <Explore champions={explore} />
         </main>
     );
 };

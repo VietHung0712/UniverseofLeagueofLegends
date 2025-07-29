@@ -1,10 +1,20 @@
 #container {
+    position: relative;
     min-height: 110vh;
     height: max-content;
     padding: 10vh 0;
-    background-image: radial-gradient(ellipse closest-side at 50% 35%, #1b2528, #0a0a0c);
+    background-color: #000;
+
+    .borderBg {
+        background-image: radial-gradient(ellipse closest-side at 50% 15%, #1b2528, #000);
+        background-color: #000;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
 
     .ctr {
+        position: relative;
+
         .rowItem {
             .col__item {
                 height: 60vh;

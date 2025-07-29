@@ -13,27 +13,20 @@ const Container = ({ champion }) => {
     const { data: roles, loading4, error4 } = useRoles();
 
     const region = useMemo(() => {
-        if (!regions || !champion?.region) return null;
-        return regions.find(item => item.id === champion.region);
+        return regions?.find(item => item.id === champion.region);
     }, [regions, champion]);
 
     const role = useMemo(() => {
-        if (!roles || !champion?.role) return null;
-        return roles.find(item => item.id === champion.role);
+        return roles?.find(item => item.id === champion.role);
     }, [roles, champion]);
 
     const thisRelations = useMemo(() => {
-        if (!relations) return [];
         return [...relations]?.filter(item => item.champion === champion.id);
     }, [relations, champion]);
 
     const championRelations = useMemo(() => {
-        if (!champions || !thisRelations.length) return [];
-
-        return thisRelations
-            .map(rel => champions.find(item => item.id === rel.related))
-            .filter(Boolean);
-    }, [champions, thisRelations]);
+        return thisRelations?.map(rel => champions?.find(item => item.id === rel.related)).filter(Boolean);
+    }, [thisRelations, champions]);
 
     if (loading1 || loading2 || loading3 || loading4) return (<Loading />);
     if (error1 || error2 || error3 || error4) return <div>Error: {error1.message || error2.message || error3.message || error4.message || "Something went wrong."}</div>;
@@ -46,6 +39,7 @@ const Container = ({ champion }) => {
 const Content = ({ champion, championRelations, region, role }) => {
     return (
         <section id={styles.container} className="flex-center flex-column">
+            <div className={`${styles.borderBg} position-absolute top-0 start-0 end-0 h-100`}></div>
             <div className={`${styles.ctr} container h-75`}>
                 <div className={`${styles.rowItem} row h-100`}>
                     <div className={`${styles.col__item} ${styles.col__1} col-12 col-lg-3 p-1`}>

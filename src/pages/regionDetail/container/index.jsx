@@ -1,4 +1,4 @@
-import { memo, useRef, useState, useEffect } from "react";
+import { memo, useRef, useState, useEffect, useMemo } from "react";
 import { useChampions } from "../../../api/useModel";
 import ContainerHeader from "../../../components/containerHeader";
 import ChampionsList from "../../../components/championsList";
@@ -7,9 +7,13 @@ import styles from "./style.module.css";
 
 const Container = ({ region }) => {
     const { data: champions, loading, error } = useChampions();
+
+    const championsOfRegion = useMemo(() => {
+        return [...champions].filter(item => item.region === region?.id).sort((a, b) => a.id.localeCompare(b.id))
+    }, [champions, region]);
+    
     if (loading) return (<Loading />);
     if (error) return <div>Error: {error.message || "Something went wrong."}</div>;
-    const championsOfRegion = champions.filter(item => item.region === region.id).sort((a, b) => a.id.localeCompare(b.id));
 
     return (
         <Content region={region} champions={championsOfRegion} />

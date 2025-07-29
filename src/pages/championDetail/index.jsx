@@ -1,6 +1,6 @@
 import { memo } from "react";
 import { useParams } from "react-router-dom";
-import Process from "./Process";
+import Process from "./process";
 
 const ChampionDetail = () => {
     const { id } = useParams();

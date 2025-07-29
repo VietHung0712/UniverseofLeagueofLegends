@@ -3,22 +3,22 @@ import { Link } from "react-router-dom";
 import ContainerHeader from "../containerHeader";
 import styles from "./style.module.css";
 
-const ExploreUniverse = ({ region1, region2, src1, src2 }) => {
+const ExploreUniverse = ({ objects, content = '' }) => {
     return (
         <section>
-            <ContainerHeader content={'Explore'} src="https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/Regions/runeterra/runeterra_crest_icon.png" />
-            <Content region1={region1} region2={region2} src1={src1} src2={src2} />
+            <ContainerHeader content={'Explore ' + content} src="https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/Regions/runeterra/runeterra_crest_icon.png" />
+            <Content objects={objects} />
         </section>
     )
 }
 
-const Content = ({ region1, region2, src1, src2 }) => {
+const Content = ({ objects }) => {
     return (
         <div className="container">
             <div className="row">
                 <div className="col-6">
-                    <Link to={src1} className={`${styles.a} w-100 d-block position-relative transition300ms`}>
-                        <img className="h-100 w-100 object-fit-cover" src={region1.background} alt="" />
+                    <Link to={objects[0][2]} className={`${styles.a} w-100 d-block position-relative transition300ms`}>
+                        <img className="h-100 w-100 object-fit-cover" loading="lazy" src={objects[0][1]} alt="" />
                         <div className="position-absolute start-0 top-0 h-100 w-100 transition300ms">
                             <div className="position-absolute-center text-color-3 text-center letter-spacing-2 text-uppercase">
                                 <span>Explore</span>
@@ -32,13 +32,13 @@ const Content = ({ region1, region2, src1, src2 }) => {
                             </div>
                         </div>
                         <p className="position-absolute start-0 bottom-0 text-color-3 px-3 py-md-3 w-100 text-center letter-spacing-2 font-size-16 text-uppercase transition300ms">
-                            {region1.name}
+                            {objects[0][0]}
                         </p>
                     </Link>
                 </div>
                 <div className="col-6">
-                    <Link to={src2} className={`${styles.a} w-100 d-block position-relative transition300ms`}>
-                        <img className="h-100 w-100 object-fit-cover" src={region2.background} alt="" />
+                    <Link to={objects[1][2]} className={`${styles.a} w-100 d-block position-relative transition300ms`}>
+                        <img className="h-100 w-100 object-fit-cover" loading="lazy" src={objects[1][1]} alt="" />
                         <div className="position-absolute start-0 top-0 h-100 w-100 transition300ms">
                             <div className="position-absolute-center text-color-3 text-center letter-spacing-2 text-uppercase">
                                 <span>Explore</span>
@@ -52,7 +52,7 @@ const Content = ({ region1, region2, src1, src2 }) => {
                             </div>
                         </div>
                         <p className="position-absolute start-0 bottom-0 text-color-3 px-3 py-md-3 w-100 text-center letter-spacing-2 font-size-16 text-uppercase transition300ms">
-                            {region2.name}
+                            {objects[1][0]}
                         </p>
                     </Link>
                 </div>

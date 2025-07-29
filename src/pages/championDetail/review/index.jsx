@@ -10,7 +10,7 @@ const Review = ({ champion }) => {
 
     const arrSkins = useMemo(() => {
         if (!skins || !champion) return [];
-        return skins?.filter(item => item.champion === champion.id);
+        return [...skins]?.filter(item => item.champion === champion?.id);
     }, [skins, champion]);
 
     if (loading || !champion) return (<Loading />);
