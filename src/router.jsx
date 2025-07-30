@@ -7,6 +7,7 @@ import RegionsPage from './pages/regions';
 import RegionDetail from './pages/regionDetail';
 import ChampionDetail from './pages/championDetail';
 import ModelPage from './pages/model';
+import AltKdaPage from './pages/kda/';
 
 const renderRouterUser = () => {
     const userRouters = [
@@ -40,7 +41,7 @@ const renderRouterUser = () => {
         },
         {
             path: ROUTERS.KDA,
-            component : null
+            component : <AltKdaPage />
         },
         {
             path: ROUTERS.SPIRITBLOSSOM,

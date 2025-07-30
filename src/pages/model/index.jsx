@@ -70,7 +70,7 @@ const Content = ({ champion, skins, models }) => {
     const modelViewerRef = useRef();
     const ctrModelRef = useRef();
     const [animations, setAnimations] = useState([]);
-    const [thisModel, setThisModel] = useState(models.find(item => item.skin === null));
+    const [thisModel, setThisModel] = useState(models?.find(item => item.skin === null));
     const [indexAnim, setIndexAnim] = useState(0);
     const [timeScale, setTimeScale] = useState(1);
     const [art, setArt] = useState(champion.splash_art);
