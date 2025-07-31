@@ -142,6 +142,8 @@ const Content = ({ champion, skins, models }) => {
     const handleChangeModel = (id) => {
         const modelViewer = modelViewerRef.current;
         if (!modelViewer) return;
+        setTimeScale(1);
+        modelViewerRef.current.timeScale = 1;
         let m = null;
         if (id === 0) {
             m = models.find(item => item.skin === null);
@@ -170,7 +172,7 @@ const Content = ({ champion, skins, models }) => {
         <section id={styles.content}>
             <div className="container">
                 <div className="row">
-                    <div className={`${styles.list} col-12 col-lg-2 scrollbar`}>
+                    <div className={`${styles.list} col-12 col-lg-2 scrollbar py-5`}>
                         <div>
                             <h6>Models</h6>
                             <select name="" onChange={(e) => handleChangeModel(Number(e.target.value))}>
@@ -213,7 +215,7 @@ const Content = ({ champion, skins, models }) => {
                                             onChange={(e) => {
                                                 const value = parseFloat(e.target.value);
                                                 setTimeScale(value);
-                                                modelViewerRef.current.timeScale = value;
+                                                modelViewerRef.current.timeScale = timeScale;
                                             }}
                                         />
                                     </>

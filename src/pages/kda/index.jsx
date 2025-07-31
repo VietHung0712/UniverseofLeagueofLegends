@@ -1,4 +1,5 @@
 import { memo, useEffect, useRef, useState } from "react";
+import { scrollHorizontal } from "../../utils/functions";
 import styles from "./style.module.css";
 
 
@@ -392,6 +393,8 @@ const Gallery = () => {
         if (!list) return;
         const listChild = list?.children;
 
+        scrollHorizontal(list);
+
         let num = Math.ceil(listChild[0].offsetWidth * listChild.length / list.offsetWidth);
         setNumberTab(num);
     }, [])
@@ -432,7 +435,7 @@ const Gallery = () => {
                 <div className="row">
                     <div className={`${styles.mHeader} ${styles.ctrHeader} fw-bold d-flex justify-content-between`}>
                         <h1>Gallery // Wallpapers</h1>
-                        <div className={`d-flex gap-3`}>
+                        <div className={`d-none d-md-flex gap-3`}>
                             <button onClick={() => scrollList(-1)} className={`${styles.myBtn} ${indexTab === 0 ? styles.unset : ''}`}>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-chevron-left" viewBox="0 0 16 16">
                                     <path fillRule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0" />
@@ -460,7 +463,7 @@ const Gallery = () => {
                     </div>
                 </div>
                 <div className="row">
-                    <div className={`${styles.tabs} d-flex justify-content-end align-items-center`}>
+                    <div className={`${styles.tabs} d-none d-md-flex justify-content-end align-items-center`}>
                         {
                             [...Array(numberTab)]?.map((item, key) => (
                                 <div className={indexTab === key ? styles.active : ''} datatype={item} key={key}></div>
@@ -471,7 +474,8 @@ const Gallery = () => {
                 <div className="row">
                     {
                         openSrc !== null && (
-                            <div onClick={() => handleClose()} className={`${styles.show} position-fixed top-0 start-0 h-100 w-100`}>
+                            <div className={`${styles.show} position-fixed top-0 start-0 h-100 w-100`}>
+                                <div onClick={() => handleClose()}></div>
                                 <img src={openSrc} alt="" />
                             </div>
                         )
@@ -526,11 +530,23 @@ const SplashArt = () => {
                             </ul>
                         </header>
                     </div>
-                    <div className={`${styles.ctr__body} row`}>
-                        <img className={`${styles.box} ${styles.box0} p-0 object-fit-cover`} data-text="Ahri" loading="lazy" alt="" src={splashArt[indexSA][0]}></img>
-                        <img className={`${styles.box} ${styles.box1} p-0 object-fit-cover`} data-text="Ahri" loading="lazy" alt="" src={splashArt[indexSA][1]}></img>
-                        <img className={`${styles.box} ${styles.box2} p-0 object-fit-cover`} data-text="Ahri" loading="lazy" alt="" src={splashArt[indexSA][2]}></img>
-                        <img className={`${styles.box} ${styles.box3} p-0 object-fit-cover`} data-text="Ahri" loading="lazy" alt="" src={splashArt[indexSA][3]}></img>
+                    <div className={`${styles.rowCtr} row`}>
+                        <div className={`${styles.ctr__border} position-relative`}>
+                            <div className={styles.ctr__body}>
+                                <div className={`${styles.box} ${styles.box0}`}>
+                                    <img className={`p-0 object-fit-cover`} loading="lazy" alt="" src={splashArt[indexSA][0]}></img>
+                                </div>
+                                <div className={`${styles.box} ${styles.box1}`}>
+                                    <img className={`p-0 object-fit-cover`} loading="lazy" alt="" src={splashArt[indexSA][1]}></img>
+                                </div>
+                                <div className={`${styles.box} ${styles.box2}`}>
+                                    <img className={`p-0 object-fit-cover`} loading="lazy" alt="" src={splashArt[indexSA][2]}></img>
+                                </div>
+                                <div className={`${styles.box} ${styles.box3}`}>
+                                    <img className={`p-0 object-fit-cover`} loading="lazy" alt="" src={splashArt[indexSA][3]}></img>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
