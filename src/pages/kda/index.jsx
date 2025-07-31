@@ -10,6 +10,7 @@ const AltKdaPage = () => {
             <MemberSlide />
             <More />
             <SplashArt />
+            <Gallery />
             <NewHit />
         </main>
     )
@@ -351,6 +352,136 @@ const More = () => {
     )
 }
 
+const Gallery = () => {
+
+    const listRef = useRef();
+
+    const [isScrolling, setIsScrolling] = useState(false);
+    const [numberTab, setNumberTab] = useState(0);
+    const [indexTab, setIndexTab] = useState(0);
+    const [openSrc, setOpenSrc] = useState(null);
+
+    const [gallery] = useState([
+        "https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/KDA/Image/Gallery/KDA_Gallery_Ahri_0.avif",
+        "https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/KDA/Image/Gallery/KDA_Gallery_Akali_0.avif",
+        "https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/KDA/Image/Gallery/KDA_Gallery_Evelynn_0.avif",
+        "https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/KDA/Image/Gallery/KDA_Gallery_KaiSa_0.avif",
+        "https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/KDA/Image/Gallery/KDA_Gallery_Ahri_1.avif",
+        "https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/KDA/Image/Gallery/KDA_Gallery_Akali_1.avif",
+        "https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/KDA/Image/Gallery/KDA_Gallery_Evelynn_1.avif",
+        "https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/KDA/Image/Gallery/KDA_Gallery_KaiSa_1.avif",
+        "https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/KDA/Image/Gallery/KDA_Gallery_Ahri_2.avif",
+        "https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/KDA/Image/Gallery/KDA_Gallery_Akali_2.avif",
+        "https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/KDA/Image/Gallery/KDA_Gallery_Evelynn_2.avif",
+        "https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/KDA/Image/Gallery/KDA_Gallery_KaiSa_2.avif",
+        "https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/KDA/Image/Gallery/KDA_Promo.jpg",
+        "https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/KDA/Image/Gallery/KDA_AllOut_Promo_0.jpg",
+        "https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/KDA/Image/Gallery/KDA_AllOut_Promo_1.jpg",
+        "https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/KDA/Image/Gallery/KDA_AllOut_Promo_2.jpg",
+        "https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/KDA/Image/Gallery/KDA_AllOut_Promo_3.avif",
+        "https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/KDA/Image/Concept/KDA_AllOut_ConCept.jpg",
+        "https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/KDA/Image/Concept/KDA_AllOut_Concept_Ahri.png",
+        "https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/KDA/Image/Concept/KDA_AllOut_Concept_Akali.png",
+        "https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/KDA/Image/Concept/KDA_AllOut_Concept_Evelynn.png",
+        "https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/KDA/Image/Concept/KDA_AllOut_Concept_KaiSa.png",
+        "https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/KDA/Image/Concept/KDA_AllOut_Concept_Seraphine.png"
+    ]);
+
+    useEffect(() => {
+        const list = listRef?.current;
+        if (!list) return;
+        const listChild = list?.children;
+
+        let num = Math.ceil(listChild[0].offsetWidth * listChild.length / list.offsetWidth);
+        setNumberTab(num);
+    }, [])
+
+    const scrollList = (index) => {
+        if (isScrolling) return;
+
+        setIsScrolling(true);
+        if (indexTab >= 0 && indexTab < numberTab && (indexTab + index) >= 0 && (indexTab + index) < numberTab) {
+            setIndexTab(item => item + index);
+        }
+        const list = listRef.current;
+        const value = index * list.offsetWidth;
+
+        list.scrollBy({
+            left: value,
+            behavior: "smooth",
+        });
+
+        setTimeout(() => {
+            setIsScrolling(false);
+        }, 600);
+    };
+
+    const handleOpenSrc = (src) => {
+        setOpenSrc(src);
+        document.documentElement.style.overflow = 'hidden';
+    }
+
+    const handleClose = () => {
+        setOpenSrc(null);
+        document.documentElement.style.overflow = '';
+    };
+
+    return (
+        <section id={styles.gallery} className={styles.paddingSection}>
+            <div className="container m-auto">
+                <div className="row">
+                    <div className={`${styles.mHeader} ${styles.ctrHeader} fw-bold d-flex justify-content-between`}>
+                        <h1>Gallery // Wallpapers</h1>
+                        <div className={`d-flex gap-3`}>
+                            <button onClick={() => scrollList(-1)} className={`${styles.myBtn} ${indexTab === 0 ? styles.unset : ''}`}>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-chevron-left" viewBox="0 0 16 16">
+                                    <path fillRule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0" />
+                                </svg>
+                            </button>
+                            <button onClick={() => scrollList(1)} className={`${styles.myBtn} ${indexTab === numberTab - 1 ? styles.unset : ''}`}>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fillRule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div className={`${styles.ctr__body} row`}>
+                    <div ref={listRef}>
+                        {
+                            gallery?.map((item, key) => (
+                                <div key={key} className="col-6 col-sm-4 col-md-3 col-lg-2">
+                                    <button onClick={() => handleOpenSrc(item)}>
+                                        <img className="h-100 w-100 object-fit-cover" src={item} alt="" />
+                                    </button>
+                                </div>
+                            ))
+                        }
+                    </div>
+                </div>
+                <div className="row">
+                    <div className={`${styles.tabs} d-flex justify-content-end align-items-center`}>
+                        {
+                            [...Array(numberTab)]?.map((item, key) => (
+                                <div className={indexTab === key ? styles.active : ''} datatype={item} key={key}></div>
+                            ))
+                        }
+                    </div>
+                </div>
+                <div className="row">
+                    {
+                        openSrc !== null && (
+                            <div onClick={() => handleClose()} className={`${styles.show} position-fixed top-0 start-0 h-100 w-100`}>
+                                <img src={openSrc} alt="" />
+                            </div>
+                        )
+                    }
+                </div>
+            </div>
+        </section>
+    )
+}
+
 const SplashArt = () => {
 
     const [btn] = useState(["K/DA", "Prestige K/DA", "K/DA - All Out"]);
@@ -411,7 +542,7 @@ const NewHit = () => {
     return (
         <section id={styles.newHit} className={styles.paddingSection}>
             <div className="bg-center-cover-norepeat"
-                style={{backgroundImage: `url(https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/KDA/Image/Background/KDA_Background_4.jpg)`}}>
+                style={{ backgroundImage: `url(https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/KDA/Image/Background/KDA_Background_4.jpg)` }}>
                 <div className="container">
                     <div className={`${styles.rowCtr} row p-lg-5`}>
                         <div className="col-12 col-lg-6">

@@ -70,13 +70,33 @@ const Content = ({ champion, skins, models }) => {
     const modelViewerRef = useRef();
     const ctrModelRef = useRef();
     const [animations, setAnimations] = useState([]);
-    const [thisModel, setThisModel] = useState(models?.find(item => item.skin === null));
+    const [thisModel, setThisModel] = useState(null);
     const [indexAnim, setIndexAnim] = useState(0);
     const [timeScale, setTimeScale] = useState(1);
+    const [progress, setProgress] = useState(0);
     const [art, setArt] = useState(champion.splash_art);
 
+    useEffect(() => {
+        const modelViewer = modelViewerRef.current;
+        if (!modelViewer) return;
+
+        const handleProgress = (event) => {
+            const value = event.detail?.totalProgress ?? 0;
+            setProgress(Math.floor(value * 100));
+        };
+
+        modelViewer.addEventListener("progress", handleProgress);
+        return () => {
+            modelViewer.removeEventListener("progress", handleProgress);
+        };
+    }, []);
 
     useEffect(() => {
+        if (!thisModel && models?.length > 0) {
+            const defaultModel = models.find(item => item.skin === null) ?? models[0];
+            setThisModel(defaultModel);
+            return;
+        }
         const modelViewer = modelViewerRef.current;
 
         const handleLoadEvent = () => {
@@ -205,7 +225,7 @@ const Content = ({ champion, skins, models }) => {
                         </div>
                     </div>
                     <div className={`${styles.model} col-12 col-lg-10`}>
-                        <div ref={ctrModelRef}>
+                        <div ref={ctrModelRef} className="position-relative">
                             <model-viewer
                                 ref={modelViewerRef}
                                 className={styles.viewer}
@@ -216,6 +236,13 @@ const Content = ({ champion, skins, models }) => {
                                 autoplay
                                 shadow-intensity="1">
                             </model-viewer>
+                            {
+                                progress < 100 && (
+                                    <div className="position-absolute h-100 w-100 start-0 top-0 z-3 text-center">
+                                        <h1 className="position-absolute-center text-white">{progress}%</h1>
+                                    </div>
+                                )
+                            }
                         </div>
                     </div>
                 </div>
