@@ -8,6 +8,8 @@ import RegionDetail from './pages/regionDetail';
 import ChampionDetail from './pages/championDetail';
 import ModelPage from './pages/model';
 import AltKdaPage from './pages/kda/';
+import AltMythmakerPage from './pages/mythmaker';
+import AltSpiritBlossomPage from './pages/spiritBlossom';
 
 const renderRouterUser = () => {
     const userRouters = [
@@ -45,11 +47,11 @@ const renderRouterUser = () => {
         },
         {
             path: ROUTERS.SPIRITBLOSSOM,
-            component : null
+            component : <AltSpiritBlossomPage />
         },
         {
             path: ROUTERS.MYTHMAKER,
-            component : null
+            component : <AltMythmakerPage />
         }
     ];
 

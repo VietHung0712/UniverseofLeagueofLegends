@@ -57,10 +57,8 @@ const Content = ({ champion, championRelations, region, role }) => {
                                                 <Link className="h-100 w-100 flex-center flex-column justify-content-between text-decoration-none"
                                                     to={generatePath(ROUTERS.CHAMPION, { id: item.id })}>
                                                     <div className={`${styles.border__img} flex-center rounded-circle transition300ms`}>
-                                                        <div className="rounded-circle overflow-hidden">
-                                                            <img className="h-100 w-100 object-fit-cover"
-                                                                src={item.splash_art} alt="" loading="lazy"
-                                                                style={{ objectPosition: `${item.position_x}% ${item.position_y}%`, transformOrigin: `${item.position_x}% ${item.position_y}%` }} />
+                                                        <div className="rounded-circle position-relative overflow-hidden">
+                                                            <div className="h-100 w-100" style={{ backgroundImage: `url(${item.splash_art})`, backgroundPosition: `${item.position_x}% ${item.position_y}%`, transformOrigin: `${item.position_x}% ${item.position_y}%` }}></div>
                                                         </div>
                                                     </div>
                                                     <h5 className="text-uppercase font-size-12 m-0 letter-spacing-2 transition300ms">
@@ -78,10 +76,8 @@ const Content = ({ champion, championRelations, region, role }) => {
                         <div className={`${styles.col__head} ${styles.col__bg} w-100 position-relative`}>
                             <div className={`${styles.img} ${styles.col__bg} position-absolute rounded-circle`}>
                                 <div className={`${styles.border__img} flex-center rounded-circle`}>
-                                    <div className="rounded-circle overflow-hidden">
-                                        <img className="h-100 w-100 object-fit-cover"
-                                            src={champion.splash_art} alt="" loading="lazy"
-                                            style={{ objectPosition: `${champion.position_x}% ${champion.position_y}%`, transformOrigin: `${champion.position_x}% ${champion.position_y}%` }} />
+                                    <div className="rounded-circle overflow-hidden position-relative">
+                                        <div className="h-100 w-100" style={{ backgroundImage: `url(${champion.splash_art})`, backgroundPosition: `${champion.position_x}% ${champion.position_y}%`, transformOrigin: `${champion.position_x}% ${champion.position_y}%` }}></div>
                                     </div>
                                 </div>
                                 <img className="position-absolute top-0 start-0 h-100 w-100" loading="lazy"

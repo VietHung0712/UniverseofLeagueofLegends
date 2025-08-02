@@ -51,6 +51,8 @@
                 .col__body {
                     div {
                         ul {
+                            min-height: 80%;
+
                             li {
                                 height: 150px;
 
@@ -130,8 +132,9 @@
             height: 95%;
             width: 95%;
 
-            img {
-                transform: scale(2);
+            &>div {
+                background-size: 768px auto;
+                background-repeat: no-repeat;
             }
         }
     }
