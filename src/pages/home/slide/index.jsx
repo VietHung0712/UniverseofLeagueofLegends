@@ -2,22 +2,19 @@ import { memo, useMemo, useRef, useState } from "react";
 import { generatePath } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { animationSlide } from "../../../utils/functions";
-import { useChampions } from "../../../api/useModel";
 import HexagonCanvas from '../hexagonCanvas';
 import ROUTERS from "../../../utils/router";
-import Loading from "../../../components/loading";
 import styles from './style.module.css';
 
-const Slide = () => {
-    const { data: champions, loading, error } = useChampions();
+const Slide = ({ champions }) => {
 
     const latestChampions = useMemo(() => {
-        return [...champions]
+        const base = [...champions]
             .sort((a, b) => new Date(b.updated_date) - new Date(a.updated_date))
             .slice(0, 5);
-    }, [champions]);
 
-    if (loading || error) return (<Loading />);
+        return [base[3], base[4], base[0], base[1], base[2]];
+    }, [champions]);
 
     return <Content array={latestChampions} />;
 };

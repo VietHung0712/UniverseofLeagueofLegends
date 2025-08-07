@@ -2,7 +2,7 @@
     height: max-content;
 
     &>div {
-        height: 100px;
+        height: 70px;
         background-size: cover;
         background-repeat: no-repeat;
 

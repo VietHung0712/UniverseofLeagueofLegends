@@ -1,6 +1,43 @@
+#main {
+    background-color: #fff;
+}
+
 #hero {
     div {
+        position: relative;
         width: 100%;
+        padding-top: 100%;
+
+        img {
+            object-position: center center;
+        }
+    }
+}
+
+#lore {
+    p {
+        font-weight: 400;
+        word-break: break-word;
+        font-size: 18px;
+        line-height: 26px;
+        color: rgb(10, 20, 40);
+        font-style: italic;
+        text-align: justify;
+        text-align-last: center;
+    }
+}
+
+#video {
+    .video {
+        position: relative;
         padding-top: 56.25%;
+    }
+}
+
+@media (min-width: 768px) {
+    #hero {
+        div {
+            padding-top: 50%;
+        }
     }
 }

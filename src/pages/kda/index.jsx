@@ -3,6 +3,10 @@ import styles from "./style.module.css";
 
 
 const AltKdaPage = () => {
+    useEffect(() => {
+        document.title = "K/DA - Universe of League of Legends";
+    });
+
     return (
         <main>
             <Slide />

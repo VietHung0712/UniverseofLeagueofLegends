@@ -105,7 +105,7 @@
     width: 100%;
     overflow: hidden;
     height: max-content;
-    min-height: 50vh;
+    min-height: 60vh;
 
     .slide__splashArt {
         position: relative;

@@ -83,7 +83,7 @@ const Content = ({ champion, championRelations, region, role }) => {
                                 <img className="position-absolute top-0 start-0 h-100 w-100" loading="lazy"
                                     src="https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/Others/ChampionIconFrame.jpg" alt="" />
                             </div>
-                            <div className={`${styles.content} h-100 col-11 m-auto mt-3 mt-lg-0 flex-center flex-column justify-content-center p-lg-0 p-5`}>
+                            <div className={`${styles.content} h-100 col-11 mx-auto flex-center flex-column justify-content-center py-lg-0`}>
                                 <p className="fs-5 fw-bold letter-spacing-1 text-center">
                                     {champion.voice}
                                 </p>

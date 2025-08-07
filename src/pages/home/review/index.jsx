@@ -1,16 +1,11 @@
 import { memo, useRef, useState } from "react";
 import { scrollWithOffset } from "../../../utils/functions";
 import { Link, generatePath } from "react-router-dom";
-import { useRegions } from "../../../api/useModel";
 import ROUTERS from "../../../utils/router";
-import Loading from "../../../components/loading";
 import ContainerHeader from "../../../components/containerHeader";
 import styles from './style.module.css';
 
-const Review = () => {
-    const { data: regions, loading, error } = useRegions();
-    if (loading) return (<Loading />);
-    if (error) return (console.log(error));
+const Review = ({ regions }) => {
 
     return (
         <section id={styles.review}>
