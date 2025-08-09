@@ -345,7 +345,7 @@ const Gallery = () => {
                 <div className="row row-gap-4 justify-content-center">
                     {
                         (isShow ? gallerys : gallerys?.slice(0, 4))?.map((item, key) => (
-                            <div key={key} className={`col-lg-3`}>
+                            <div key={key} className={`col-6 col-md-3`}>
                                 <div className={styles.gallery__item}>
                                     <a href={item} target="_blank" rel="noopener noreferrer"
                                         className="position-absolute top-0 start-0 h-100 w-100 d-block">
