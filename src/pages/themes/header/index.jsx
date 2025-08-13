@@ -19,9 +19,15 @@ const Header = () => {
             name: "Alt Universe",
             path: "#",
             child: [
-                { name: "Spirit Blossom", path: ROUTERS.SPIRITBLOSSOM },
-                { name: "K/DA", path: ROUTERS.KDA },
-                // { name: "Mythmaker", path: ROUTERS.MYTHMAKER }
+                {
+                    name: "Spirit Blossom",
+                    path: ROUTERS.SPIRITBLOSSOM,
+
+                },
+                {
+                    name: "K/DA",
+                    path: ROUTERS.KDA,
+                },
             ]
         },
         {
@@ -32,7 +38,11 @@ const Header = () => {
             name: "More",
             path: "#",
             child: [
-                { name: "Khada - Models 3D", path: "https://modelviewer.lol/", blank: true }
+                {
+                    name: "Khada - Models 3D",
+                    path: "https://modelviewer.lol/",
+                    target: "_blank" 
+                }
             ]
         }
     ]);
@@ -100,7 +110,7 @@ const Header = () => {
                                             {
                                                 item.child?.map((childItem, childKey) => (
                                                     <li key={childKey}>
-                                                        <Link className={styles.a} to={childItem.path} target="_blank" rel="noopener noreferrer">{childItem.name}</Link>
+                                                        <Link className={styles.a} to={childItem.path} target={childItem.target} rel="noopener noreferrer">{childItem.name}</Link>
                                                     </li>
                                                 ))
                                             }
