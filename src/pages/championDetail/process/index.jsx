@@ -4,7 +4,6 @@ import Loading from "../../../components/loading";
 import Hero from "../hero";
 import Container from "../container";
 import Review from "../review";
-import Model from "../model";
 import Explore from "../explore";
 
 const Process = ({ id }) => {
@@ -16,6 +15,7 @@ const Process = ({ id }) => {
         if (!loading && champions?.length > 0 && id) {
             const found = champions.find(item => item.id === id);
             setChampion(found);
+            document.title = `${found.name} - Champions - Universe of League of Legends`;
         }
     }, [id, champions, loading]);
 
@@ -44,7 +44,6 @@ const Process = ({ id }) => {
             <Hero hero={hero} />
             <Container champion={champion} />
             <Review champion={champion} />
-            <Model champion={champion} />
             <Explore champions={explore} />
         </main>
     );

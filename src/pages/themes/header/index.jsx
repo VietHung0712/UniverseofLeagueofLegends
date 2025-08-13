@@ -21,13 +21,19 @@ const Header = () => {
             child: [
                 { name: "Spirit Blossom", path: ROUTERS.SPIRITBLOSSOM },
                 { name: "K/DA", path: ROUTERS.KDA },
-                { name: "Mythmaker", path: ROUTERS.MYTHMAKER }
+                // { name: "Mythmaker", path: ROUTERS.MYTHMAKER }
             ]
         },
         {
             name: "Explore",
             path: ROUTERS.EXPLORE,
             child: []
+        }, {
+            name: "More",
+            path: "#",
+            child: [
+                { name: "Khada - Models 3D", path: "https://modelviewer.lol/", blank: true }
+            ]
         }
     ]);
 
@@ -94,7 +100,7 @@ const Header = () => {
                                             {
                                                 item.child?.map((childItem, childKey) => (
                                                     <li key={childKey}>
-                                                        <Link className={styles.a} to={childItem.path}>{childItem.name}</Link>
+                                                        <Link className={styles.a} to={childItem.path} target="_blank" rel="noopener noreferrer">{childItem.name}</Link>
                                                     </li>
                                                 ))
                                             }

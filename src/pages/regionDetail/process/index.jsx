@@ -16,6 +16,7 @@ const Process = ({ id }) => {
         if (!loading && regions?.length > 0 && id) {
             const found = regions.find(item => item.id === id);
             setRegion(found);
+            document.title = `${found.name} - Regions - Universe of League of Legends`;
         }
     }, [id, regions, loading]);
 

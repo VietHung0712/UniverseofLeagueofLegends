@@ -3,6 +3,7 @@ import { useRegions } from "../../api/useModel";
 import { Link, generatePath } from "react-router-dom";
 import ROUTERS from "../../utils/router";
 import Loading from "../../components/loading";
+import TitlePage from "../../components/TitlePage";
 import styles from "./style.module.css";
 
 const RegionsPage = () => {
@@ -18,13 +19,13 @@ const RegionsPage = () => {
 
     return (
         <main id={styles.main}>
-            <Header />
-            <Content regions={regions} />
+            <TitlePage title={"Regions"} />
+            <Container regions={regions} />
         </main>
     );
 };
 
-const Content = ({ regions }) => {
+const Container = ({ regions }) => {
     return (
         <section id={styles.container} className="container">
             <div className={`${styles.rowCtr} row`}>
@@ -51,16 +52,6 @@ const Content = ({ regions }) => {
                 }
             </div>
         </section >
-    )
-}
-
-const Header = () => {
-    return (
-        <section id={styles.title}>
-            <div className="container h-100 d-flex align-items-center">
-                <h1 className="fw-bold z-2">Regions</h1>
-            </div>
-        </section>
     )
 }
 

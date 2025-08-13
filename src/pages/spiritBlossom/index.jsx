@@ -11,8 +11,9 @@ const AltSpiritBlossomPage = () => {
         <main id={styles.main}>
             <Hero />
             <Lore />
-            <Video />
+            <Video title={"Kin of the Stained Blade"} src={"https://www.youtube.com/embed/D4L0OkSrsI8?si=PS1Vew6w9PfdW1rd"} />
             <Slide />
+            <Video title={"The Path, An Ionia Myth"} src={"https://www.youtube.com/embed/u9fFG4ZLp9Y?si=wMO2f8yPtPjVDGRk"} />
             <Gallery />
         </main>
     )
@@ -45,15 +46,20 @@ const Lore = () => {
     )
 }
 
-const Video = () => {
+const Video = ({ title, src }) => {
     return (
         <section id={styles.video}>
-            <div className="container py-5">
+            <div className="container py-md-5">
                 <div className="row">
-                    <div className="col-12 col-xl-11 m-auto">
+                    <div className="col-12 py-md-5">
+                        <h2 className={styles.title}>{title}</h2>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col-12 m-auto">
                         <div className={styles.video}>
                             <iframe width="100%" height="100%" className="position-absolute start-0 top-0"
-                                src="https://www.youtube.com/embed/D4L0OkSrsI8?si=PS1Vew6w9PfdW1rd"
+                                src={src}
                                 title="YouTube video player"
                                 frameBorder="0"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -216,6 +222,10 @@ const Slide = () => {
             lore: "The Ashen Caretaker was once a man who, alongside a timid fawn, tended to a sacred forest with the utmost care—until it burned to the ground before his eyes. His heart, too, crumbled to ash, for it had forgotten death gives rise to new blooms. Now the flowers he tends seem to blister in flames unseen, his gardeners now howling creatures of the night.",
             url: "https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/Splash_Art/Y/Yorick/Yorick_7.jpg",
         }, {
+            name: "Yunara",
+            lore: "Unwavering in her devotion to  Ionia, An icon representing Yunara Yunara has spent centuries cloistered away in the spirit realm honing her skills with the An icon for Yunara's ability Cultivation of Spirit Aion Er'na, a legendary  Kinkou relic. Despite all she has sacrificed, Yunara's vow to rid the land of disharmony and strife remains unbroken, as does her faith. But the world that now awaits her—and the shadow of an ancient threat risen once more—will test every ounce of her resolve.",
+            url: "https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/Splash_Art/Y/Yunara/Yunara_0.jpg",
+        }, {
             name: "Zed",
             lore: "Legend speaks of the Burning Shade, a warrior who sacrificed himself for a noble cause, only to see his allies fall. Believing his sacrifice meaningless, grief consumed his soul until all that remained was shadow and rage. Now, he haunts wayward warriors, sparking fires in their hearts until they, too, join him as clones of smoke and shade.",
             url: "https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/Splash_Art/Z/Zed/Zed_16.jpg",
@@ -231,13 +241,13 @@ const Slide = () => {
         <section id={styles.slide}>
             <div className="container py-5">
                 <div className="row">
-                    <div className="col-12 py-5">
+                    <div className="col-12 py-md-5">
                         <img width={80} height={80} className="object-fit-contain m-auto d-block" src="https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/SpiritBlossom/Image/Logo/Spirit_Blossom_Logo_2.png" alt="" />
-                        <h2>Spirit Blossom</h2>
+                        <h2 className={styles.title}>Spirit Blossom</h2>
                     </div>
                 </div>
                 <div className="row">
-                    <div className="col-12">
+                    <div className="col-12 m-auto">
                         <div className={styles.ctr__body}>
                             <div className={styles.slide} ref={slideRef}>
                                 {
@@ -299,11 +309,11 @@ const Gallery = () => {
     const ref = useRef();
     const [isShow, setIsShow] = useState(false);
     const [gallerys] = useState([
-        "https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/SpiritBlossom/Image/Poster/Spirit_Blossom_Poster.jpg",
         "https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/SpiritBlossom/Image/Promo/Spirit_Blossom_promo_art_1.jpg",
         "https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/SpiritBlossom/Image/Promo/Spirit_Blossom_promo_art_2.webp",
         "https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/SpiritBlossom/Image/Promo/Spirit_Blossom_promo_art_3.jpg",
         "https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/SpiritBlossom/Image/Promo/Spirit_Blossom_promo_art_4.jpg",
+        "https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/SpiritBlossom/Image/Poster/Spirit_Blossom_Poster.jpg",
         "https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/SpiritBlossom/Image/Promo/Spirit_Blossom_promo_0.webp",
         "https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/SpiritBlossom/Image/Promo/Spirit_Blossom_promo_1.webp",
         "https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/SpiritBlossom/Image/Promo/Spirit_Blossom_promo_2.webp",
@@ -342,6 +352,11 @@ const Gallery = () => {
     return (
         <section id={styles.gallery}>
             <div className="container py-5">
+                <div className="row">
+                    <div className="col-12 py-md-5">
+                        <h2 className={styles.title}>Gallery // Wallpapers</h2>
+                    </div>
+                </div>
                 <div className="row row-gap-4 justify-content-center">
                     {
                         (isShow ? gallerys : gallerys?.slice(0, 4))?.map((item, key) => (

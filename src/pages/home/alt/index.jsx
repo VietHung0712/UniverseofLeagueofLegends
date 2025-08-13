@@ -17,7 +17,7 @@ const Alt = () => {
 const Content = () => {
     return (
         <div className={`${styles.ctr} container`}>
-            <div className={`${styles.row__ctr} row`}>
+            <div className={`${styles.row__ctr} row align-items-center justify-content-center`}>
                 <div className="col-12 col-sm-6 col-xl-4">
                     <Link to={ROUTERS.SPIRITBLOSSOM}>
                         <div>
@@ -38,18 +38,6 @@ const Content = () => {
                             </div>
                             <p>
                                 K/DA
-                            </p>
-                        </div>
-                    </Link>
-                </div>
-                <div className="col-12 col-sm-6 col-xl-4">
-                    <Link to={ROUTERS.MYTHMAKER}>
-                        <div>
-                            <div>
-                                <img src="https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/Mythmaker/Image/irelia-mythmaker.jpg" alt="" />
-                            </div>
-                            <p>
-                                Mythmaker
                             </p>
                         </div>
                     </Link>

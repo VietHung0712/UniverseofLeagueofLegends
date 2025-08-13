@@ -2,15 +2,6 @@
     background-image: linear-gradient(to bottom, #000000cf), url('https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/Others/Runeterra_Terrain_map.webp');
 }
 
-#title {
-    height: 40vh;
-
-    h1 {
-        font-size: 4rem;
-        color: #f0e6d2;
-    }
-}
-
 #container {
     .rowCtr {
         &>div {
