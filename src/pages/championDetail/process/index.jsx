@@ -36,7 +36,12 @@ const Process = ({ id }) => {
     }
 
     let indexRandom1 = Math.floor(Math.random() * championsOfRegion.length);
-    let indexRandom2 = (indexRandom1 + 1 + Math.floor(Math.random() * championsOfRegion.length) + championsOfRegion.length) % championsOfRegion.length;
+    console.log(indexRandom1);
+    let indexRandom2;
+    do {
+        indexRandom2 = Math.floor(Math.random() * championsOfRegion.length);
+    } while (indexRandom1 === indexRandom2);
+    console.log(indexRandom2);
     const explore = [championsOfRegion[indexRandom1], championsOfRegion[indexRandom2]];
 
     return (

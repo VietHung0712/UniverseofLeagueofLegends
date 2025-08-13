@@ -1,8 +1,13 @@
-import { memo, useState } from "react";
+import { memo, useState, useEffect } from "react";
 import TitlePage from "../../components/TitlePage";
 import styles from "./style.module.css";
 
 const Explore = () => {
+    
+    useEffect(() => {
+        document.title = `Explore - Universe of League of Legends`;
+    });
+
     return (
         <main id={styles.main}>
             <TitlePage title={"Explore Universe"} />
