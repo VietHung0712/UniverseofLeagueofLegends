@@ -1,5 +1,6 @@
 import { memo, useEffect, useState, useRef } from "react";
-import { animationSlide, scrollHorizontal } from "../../utils/functions";
+import { animationSlide } from "../../utils/functions";
+import ShowContents from "../../components/showContents";
 import styles from "./style.module.css";
 
 const AltSpiritBlossomPage = () => {
@@ -306,8 +307,10 @@ const Slide = () => {
 
 const Gallery = () => {
 
-    const ref = useRef();
-    const [isShow, setIsShow] = useState(false);
+    const [isViewAll, setIsViewAll] = useState(false);
+    const [show, setShow] = useState(false);
+    const [src, setSrc] = useState(null);
+
     const [gallerys] = useState([
         "https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/SpiritBlossom/Image/Promo/Spirit_Blossom_promo_art_1.jpg",
         "https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/SpiritBlossom/Image/Promo/Spirit_Blossom_promo_art_2.webp",
@@ -341,12 +344,14 @@ const Gallery = () => {
         "https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/SpiritBlossom/Image/Promo/Spirit_Blossom_promo_24.jpg",
     ]);
 
-    useEffect(() => {
-        if (ref.current) scrollHorizontal(ref.current, 3);
-    }, []);
-
     const handleShow = (value) => {
-        setIsShow(value);
+        setIsViewAll(value);
+    }
+
+    const OpenShow = (value) => {
+        setSrc(value);
+        setShow(true);
+        document.documentElement.style.overflow = 'hidden';
     }
 
     return (
@@ -359,13 +364,14 @@ const Gallery = () => {
                 </div>
                 <div className="row row-gap-4 justify-content-center">
                     {
-                        (isShow ? gallerys : gallerys?.slice(0, 4))?.map((item, key) => (
+                        (isViewAll ? gallerys : gallerys?.slice(0, 4))?.map((item, key) => (
                             <div key={key} className={`col-6 col-md-3`}>
                                 <div className={styles.gallery__item}>
-                                    <a href={item} target="_blank" rel="noopener noreferrer"
-                                        className="position-absolute top-0 start-0 h-100 w-100 d-block">
+                                    <button
+                                        onClick={() =>(OpenShow(item))}
+                                        className="position-absolute top-0 start-0 h-100 w-100 border-0">
                                         <img className="h-100 w-100 object-fit-cover" src={item} alt="" loading="lazy" />
-                                    </a>
+                                    </button>
                                 </div>
                             </div>
                         ))
@@ -373,9 +379,14 @@ const Gallery = () => {
                 </div>
                 <div className="row py-5">
                     <div className="col-12">
-                        <button onClick={() => handleShow(!isShow)} className={`${styles.btn} ${isShow ? styles.close : ''}`} style={{ backgroundImage: `url(https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/Others/prev.png)` }}></button>
+                        <button onClick={() => handleShow(!isViewAll)} className={`${styles.btn} ${isViewAll ? styles.close : ''}`} style={{ backgroundImage: `url(https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/Others/prev.png)` }}></button>
                     </div>
                 </div>
+                {
+                    (show) && (
+                        <ShowContents src={src} setSrc={setSrc} setEnable={setShow} category={0} />
+                    )
+                }
             </div>
         </section>
     )

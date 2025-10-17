@@ -7,6 +7,7 @@ function ScrollToTop() {
     const { pathname } = useLocation();
 
     useEffect(() => {
+        document.documentElement.style.overflow = "";
         if (pathname === lastPath) {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         } else {

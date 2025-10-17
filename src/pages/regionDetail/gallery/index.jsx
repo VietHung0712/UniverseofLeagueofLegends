@@ -1,8 +1,9 @@
 import { memo, useRef, useEffect, useMemo, useState } from "react";
 import { useRegionGallerys } from "../../../api/useModel";
+import { scrollHorizontal } from "../../../utils/functions";
 import ContainerHeader from "../../../components/containerHeader";
 import Loading from "../../../components/loading";
-import { scrollHorizontal } from "../../../utils/functions";
+import ShowContents from "../../../components/showContents";
 import styles from "./style.module.css";
 
 const Gallery = ({ regionId }) => {
@@ -28,22 +29,18 @@ const Gallery = ({ regionId }) => {
 const Content = ({ gallerys }) => {
 
     const ref = useRef();
-    const [activeIndex, setActiveIndex] = useState(null);
+    const [show, setShow] = useState(false);
+    const [src, setSrc] = useState(null);
 
     useEffect(() => {
         if (ref.current) scrollHorizontal(ref.current, 3);
     }, []);
 
     const handleOnCickGallery = (dir) => {
-        setActiveIndex(dir);
+        setSrc(gallerys[dir].gallery);
+        setShow(true);
         document.documentElement.style.overflow = 'hidden';
     }
-
-    const handleClose = () => {
-        setActiveIndex(null);
-        document.documentElement.style.overflow = '';
-    };
-
     return (
         <div className="container">
             <div ref={ref} className={`${styles.gallery} d-flex align-items-center overflow-x-scroll scrollbar`}>
@@ -61,23 +58,8 @@ const Content = ({ gallerys }) => {
                 }
             </div>
             {
-                activeIndex !== null && (
-                    <div className={`${styles.galleryView} flex-center position-fixed top-0 start-0 h-100 w-100`}>
-                        <div>
-                            {
-                                gallerys?.map((item, key) => (
-                                    <div className={`${styles.gallery__item} ${activeIndex === key ? styles.active : ''}`} key={key}>
-                                        <img className="h-100 w-100 object-fit-contain" src={item.gallery} loading="lazy" alt="" />
-                                    </div>
-                                ))
-                            }
-                        </div>
-                        <button onClick={handleClose} className="text-color-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-fullscreen-exit" viewBox="0 0 16 16">
-                                <path d="M5.5 0a.5.5 0 0 1 .5.5v4A1.5 1.5 0 0 1 4.5 6h-4a.5.5 0 0 1 0-1h4a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 1 .5-.5m5 0a.5.5 0 0 1 .5.5v4a.5.5 0 0 0 .5.5h4a.5.5 0 0 1 0 1h-4A1.5 1.5 0 0 1 10 4.5v-4a.5.5 0 0 1 .5-.5M0 10.5a.5.5 0 0 1 .5-.5h4A1.5 1.5 0 0 1 6 11.5v4a.5.5 0 0 1-1 0v-4a.5.5 0 0 0-.5-.5h-4a.5.5 0 0 1-.5-.5m10 1a1.5 1.5 0 0 1 1.5-1.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 0-.5.5v4a.5.5 0 0 1-1 0z" />
-                            </svg>
-                        </button>
-                    </div>
+                (show) && (
+                    <ShowContents src={src} setSrc={setSrc} setEnable={setShow} category={0} />
                 )
             }
         </div>
