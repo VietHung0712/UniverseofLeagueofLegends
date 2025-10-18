@@ -16,6 +16,7 @@ const AltSpiritBlossomPage = () => {
             <Slide />
             <Video title={"The Path, An Ionia Myth"} src={"https://www.youtube.com/embed/u9fFG4ZLp9Y?si=wMO2f8yPtPjVDGRk"} />
             <Gallery />
+            <Clear />
         </main>
     )
 }
@@ -368,7 +369,7 @@ const Gallery = () => {
                             <div key={key} className={`col-6 col-md-3`}>
                                 <div className={styles.gallery__item}>
                                     <button
-                                        onClick={() =>(OpenShow(item))}
+                                        onClick={() => (OpenShow(item))}
                                         className="position-absolute top-0 start-0 h-100 w-100 border-0">
                                         <img className="h-100 w-100 object-fit-cover" src={item} alt="" loading="lazy" />
                                     </button>
@@ -387,6 +388,49 @@ const Gallery = () => {
                         <ShowContents src={src} setSrc={setSrc} setEnable={setShow} category={0} />
                     )
                 }
+            </div>
+        </section>
+    )
+}
+
+const Clear = () => {
+
+    const [index, setIndex] = useState(0);
+
+    const [img] = useState([
+        "https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/SpiritBlossom/Image/Others/part09_roles1.webp",
+        "https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/SpiritBlossom/Image/Others/part09_roles2.webp"
+    ])
+
+    const handldeIndex = (dir) => {
+        setIndex((val) => (val + dir + img.length) % img.length);
+    };
+
+    return (
+        <section id={styles.clear} className="position-relative d-flex align-items-center justify-content-center" style={{ backgroundImage: 'url(https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/SpiritBlossom/Image/Others/bg_10.webp)' }}>
+            <div className="position-absolute top-0 start-0 w-100 h-auto">
+                <div className={`${styles.clearBor} position-absolute start-0 top-0 w-100`}
+                    style={{ backgroundImage: 'url(https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/SpiritBlossom/Image/Others/color_show2.webp)' }}>
+                </div>
+                <div className={`${styles.clearBor} position-absolute start-0 top-0 w-100`}
+                    style={{ backgroundImage: 'url(https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/SpiritBlossom/Image/Others/color_show1.webp)' }}>
+                </div>
+            </div>
+            <div className={`${styles.main} position-relative w-100`}>
+                <div className={`${styles.decor} position-absolute start-0 bottom-0 z-2`}
+                    style={{ backgroundImage: 'url(https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/SpiritBlossom/Image/Others/scenery.webp)' }}>
+                </div>
+                <div className={`${styles.btns} position-absolute d-flex justify-content-between z-2`}>
+                    <button onClick={() => handldeIndex(1)} className="rounded-circle border-0 transition200ms" style={{ backgroundImage: 'url(https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/SpiritBlossom/Image/Others/btn_arrow1.webp)' }}></button>
+                    <button onClick={() => handldeIndex(-1)} className="rounded-circle border-0 transition200ms" style={{ backgroundImage: 'url(https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/SpiritBlossom/Image/Others/btn_arrow2.webp)' }}></button>
+                </div>
+                <div className={`position-absolute start-0 w-100 z-0`}>
+                    {
+                        img?.map((item, key) => (
+                            <img key={key} className={`${(index === key) ? styles.active : ''} position-absolute start-0 bottom-0 h-100 w-100 object-fit-contain`} src={item} alt="" />
+                        ))
+                    }
+                </div>
             </div>
         </section>
     )

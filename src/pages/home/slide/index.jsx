@@ -64,21 +64,11 @@ const Content = ({ array }) => {
             <div className={`${styles.slide__ctr} container-fluid position-relative h-100 overflow-hidden`}>
                 <div className="row">
                     <div id={styles.divBtnLate} className="col-12 col-md-9 position-absolute start-50 z-1">
-                        <button className="position-relative border-0 rounded-circle bg-black transition200ms" onClick={() => handleSlide(0)}>
-                            <div className="position-absolute start-50 top-50 rounded-circle">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-caret-left-fill" viewBox="0 0 16 16">
-                                    <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z" />
-                                </svg>
-                            </div>
-                            <div className="position-absolute rounded-circle top-0 start-0 transition200ms"></div>
+                        <button className="position-relative rounded-circle bg-black transition200ms" onClick={() => handleSlide(0)}>
+                            <img className="object-fit-contain" src="https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/Others/prev.png" alt="" />
                         </button>
-                        <button className="position-relative border-0 rounded-circle bg-black float-end transition200ms" onClick={() => handleSlide(1)}>
-                            <div className="position-absolute start-50 top-50 rounded-circle">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-caret-right-fill" viewBox="0 0 16 16">
-                                    <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
-                                </svg>
-                            </div>
-                            <div className="position-absolute rounded-circle top-0 start-0 transition200ms"></div>
+                        <button className="position-relative rounded-circle bg-black float-end transition200ms" onClick={() => handleSlide(1)}>
+                            <img className="object-fit-contain" src="https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/Others/next.png" alt="" />
                         </button>
                     </div>
                 </div>
