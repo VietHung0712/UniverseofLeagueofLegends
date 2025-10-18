@@ -22,7 +22,7 @@ const Content = () => {
                     <Link to={ROUTERS.SPIRITBLOSSOM}>
                         <div>
                             <div>
-                                <img src="https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/SpiritBlossom/Image/Promo/Spirit_Blossom_promo_4.jpg" alt="" />
+                                <img src="https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/SpiritBlossom/Image/Poster/Spirit_Blossom_Poster.jpg" alt="" />
                             </div>
                             <p>
                                 Spirit Blossom

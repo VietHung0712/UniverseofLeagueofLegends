@@ -181,6 +181,17 @@ h2.title {
     }
 }
 
+#videoTheme {
+    width: 100%;
+
+    .main {
+        top: 15%;
+        left: 50%;
+        width: 40%;
+        height: 70%;
+    }
+}
+
 #clear {
     width: 100vw;
     aspect-ratio: 1920 / 1932;
@@ -188,47 +199,26 @@ h2.title {
     background-position: center;
     background-size: contain;
 
-    div:first-child {
-
-        .clearBor {
-            width: 100vw;
-            aspect-ratio: 1311 / 211;
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: contain;
-
-            &:last-child {
-                aspect-ratio: 1305 / 176;
-            }
-        }
-    }
-
     &>.main {
         padding-top: 56.25%;
 
         .btns {
             width: 90%;
             left: 5%;
-            top: 40%;
+            top: 80%;
 
             button {
-                width: 60px;
-                height: 60px;
+                width: 30px;
+                height: 30px;
                 background-size: contain;
                 background-repeat: no-repeat;
                 background-position: center;
-                filter: brightness(0.8);
-
-                &:hover {
-                    filter: brightness(1);
-                    transform: scale(1.1);
-                }
             }
         }
 
         &>div:last-child {
-            height: 80%;
-            top: 10%;
+            height: 90%;
+            top: 0%;
 
             img {
                 transform: translateY(100px);
@@ -322,6 +312,35 @@ h2.title {
             border-radius: 20px;
             border: 0;
             background-color: transparent;
+        }
+    }
+
+    #clear {
+        width: 100vw;
+        aspect-ratio: 1920 / 1932;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+
+        &>.main {
+            padding-top: 56.25%;
+
+            .btns {
+                width: 90%;
+                left: 5%;
+                top: 40%;
+
+                button {
+                    width: 60px;
+                    height: 60px;
+                    filter: brightness(0.8);
+
+                    &:hover {
+                        filter: brightness(1);
+                        transform: scale(1.1);
+                    }
+                }
+            }
         }
     }
 }

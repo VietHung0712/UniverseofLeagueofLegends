@@ -16,6 +16,7 @@ const AltSpiritBlossomPage = () => {
             <Slide />
             <Video title={"The Path, An Ionia Myth"} src={"https://www.youtube.com/embed/u9fFG4ZLp9Y?si=wMO2f8yPtPjVDGRk"} />
             <Gallery />
+            <VideoTheme />
             <Clear />
         </main>
     )
@@ -378,18 +379,61 @@ const Gallery = () => {
                         ))
                     }
                 </div>
-                <div className="row py-5">
+                <div className="row pt-5">
                     <div className="col-12">
                         <button onClick={() => handleShow(!isViewAll)} className={`${styles.btn} ${isViewAll ? styles.close : ''}`} style={{ backgroundImage: `url(https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/Others/prev.png)` }}></button>
                     </div>
                 </div>
-                {
-                    (show) && (
-                        <ShowContents src={src} setSrc={setSrc} setEnable={setShow} category={0} />
-                    )
-                }
             </div>
+            {
+                (show) && (
+                    <ShowContents src={src} setSrc={setSrc} setEnable={setShow} category={0} />
+                )
+            }
         </section>
+    )
+}
+
+const VideoTheme = () => {
+
+    const [show, setShow] = useState(false);
+    const [src, setSrc] = useState(null);
+
+    const OpenShow = (value) => {
+        setSrc(value);
+        setShow(true);
+        document.documentElement.style.overflow = 'hidden';
+    }
+
+    return (
+        <section id={styles.videoTheme}>
+            <div className="container py-lg-5 position-relative">
+                <video autoPlay muted loop
+                    className="h-100 w-100 object-fit-contain"
+                    src="https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/SpiritBlossom/Video/video-fetter-ahri.mp4">
+                </video>
+                <div className={`${styles.main} position-absolute d-flex align-items-center justify-content-around flex-column container`}>
+                    <div className="row">
+                        <img className="col-12 object-fit-contain h-100" src="https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/SpiritBlossom/Image/Others/color_show1.webp" loading="lazy" alt="" />
+                    </div>
+                    <div className="row">
+                        <video autoPlay muted onClick={(e) => OpenShow(e.target.currentSrc)}
+                            className="col-12 object-fit-contain" style={{ cursor: "pointer" }}
+                            src="https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/SpiritBlossom/Video/top-video.mp4">
+                        </video>
+                    </div>
+                    <div className="row">
+                        <img className="col-12 object-fit-contain h-100" src="https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/SpiritBlossom/Image/Others/color_show2.webp" loading="lazy" alt="" />
+                    </div>
+                </div>
+            </div>
+            {
+                (show) && (
+                    <ShowContents src={src} setSrc={setSrc} setEnable={setShow} category={3} />
+                )
+            }
+        </section>
+
     )
 }
 
@@ -398,8 +442,11 @@ const Clear = () => {
     const [index, setIndex] = useState(0);
 
     const [img] = useState([
-        "https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/SpiritBlossom/Image/Others/part09_roles1.webp",
-        "https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/SpiritBlossom/Image/Others/part09_roles2.webp"
+        "https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/SpiritBlossom/Image/Others/part01_roles1.webp",
+        "https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/SpiritBlossom/Image/Others/part03_roles1.webp",
+        "https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/SpiritBlossom/Image/Others/part02_roles2.webp",
+        "https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/SpiritBlossom/Image/Others/part01_roles2.webp",
+        "https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/SpiritBlossom/Image/Others/part03_roles2.webp"
     ])
 
     const handldeIndex = (dir) => {
@@ -408,26 +455,18 @@ const Clear = () => {
 
     return (
         <section id={styles.clear} className="position-relative d-flex align-items-center justify-content-center" style={{ backgroundImage: 'url(https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/SpiritBlossom/Image/Others/bg_10.webp)' }}>
-            <div className="position-absolute top-0 start-0 w-100 h-auto">
-                <div className={`${styles.clearBor} position-absolute start-0 top-0 w-100`}
-                    style={{ backgroundImage: 'url(https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/SpiritBlossom/Image/Others/color_show2.webp)' }}>
-                </div>
-                <div className={`${styles.clearBor} position-absolute start-0 top-0 w-100`}
-                    style={{ backgroundImage: 'url(https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/SpiritBlossom/Image/Others/color_show1.webp)' }}>
-                </div>
-            </div>
             <div className={`${styles.main} position-relative w-100`}>
                 <div className={`${styles.decor} position-absolute start-0 bottom-0 z-2`}
                     style={{ backgroundImage: 'url(https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/SpiritBlossom/Image/Others/scenery.webp)' }}>
                 </div>
                 <div className={`${styles.btns} position-absolute d-flex justify-content-between z-2`}>
-                    <button onClick={() => handldeIndex(1)} className="rounded-circle border-0 transition200ms" style={{ backgroundImage: 'url(https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/SpiritBlossom/Image/Others/btn_arrow1.webp)' }}></button>
-                    <button onClick={() => handldeIndex(-1)} className="rounded-circle border-0 transition200ms" style={{ backgroundImage: 'url(https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/SpiritBlossom/Image/Others/btn_arrow2.webp)' }}></button>
+                    <button onClick={() => handldeIndex(-1)} className="rounded-circle border-0 transition200ms" style={{ backgroundImage: 'url(https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/SpiritBlossom/Image/Others/btn_arrow1.webp)' }}></button>
+                    <button onClick={() => handldeIndex(1)} className="rounded-circle border-0 transition200ms" style={{ backgroundImage: 'url(https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/SpiritBlossom/Image/Others/btn_arrow2.webp)' }}></button>
                 </div>
                 <div className={`position-absolute start-0 w-100 z-0`}>
                     {
                         img?.map((item, key) => (
-                            <img key={key} className={`${(index === key) ? styles.active : ''} position-absolute start-0 bottom-0 h-100 w-100 object-fit-contain`} src={item} alt="" />
+                            <img key={key} className={`${(index === key) ? styles.active : ''} position-absolute start-0 bottom-0 h-100 w-100 object-fit-contain`} src={item} alt="" loading="lazy" />
                         ))
                     }
                 </div>
