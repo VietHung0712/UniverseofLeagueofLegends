@@ -204,7 +204,7 @@ const SelectionHall = ({ theme, button, setId }) => {
                 src={theme.themeEnd}
                 className="w-100 d-block position-relative z-0 object-fit-contain"
                 style={{ height: 'auto', objectFit: 'contain' }}
-                alt=""
+                alt="" loading="lazy"
             />
             <div className="position-absolute z-1 top-0 w-100 h-100 start-0">
                 {
@@ -235,7 +235,7 @@ const SelectionHall = ({ theme, button, setId }) => {
             <img
                 className={`${styles.imgTheme} ${id !== null ? styles.active : ""} position-absolute h-100 w-100 top-0 start-0 object-fit-contain z-1 transition200ms`}
                 src={theme.theme}
-                alt=""
+                alt="" loading="lazy"
             />
             <button onClick={() => chooseId(id)}
                 className={`${styles.btnView} position-absolute z-3 bg-transparent start-50 border-0 text-white transition200ms`}
@@ -277,7 +277,7 @@ const DisplayHall = ({ theme, data, currentId }) => {
                     src={theme.themeEnd}
                     className="w-100 d-block position-relative z-0 object-fit-contain"
                     style={{ height: 'auto', objectFit: 'contain' }}
-                    alt=""
+                    alt="" loading="lazy"
                 />
                 <video autoPlay loop muted src={data[id]?.videoBg}
                     className="position-absolute top-0 start-0 h-100 w-100 object-fit-lg-contain object-fit-cover">
@@ -287,7 +287,7 @@ const DisplayHall = ({ theme, data, currentId }) => {
                         src="https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/SpiritBlossom/Image/Others/bg2/ip-bottom.webp"
                         className="w-100 d-block position-relative z-0 object-fit-contain"
                         style={{ height: 'auto', objectFit: 'contain' }}
-                        alt=""
+                        alt="" loading="lazy"
                     />
                 </div>
                 <div className="position-absolute end-0 top-0 h-100 w-100">
@@ -296,7 +296,7 @@ const DisplayHall = ({ theme, data, currentId }) => {
                         <div className="position-relative" style={{ backgroundImage: `url(https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/SpiritBlossom/Image/Others/ip-animate-border.webp)` }}>
                             <h3>Splash Art</h3>
                             <img onClick={(e) => (setOpenShowContents(e.target.currentSrc), setCategory(0))}
-                                className="object-fit-cover" src={data[id]?.imgTheme} alt="" />
+                                className="object-fit-cover" src={data[id]?.imgTheme} loading="lazy" alt="" />
                         </div>
                         <div className="position-relative" style={{ backgroundImage: `url(https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/SpiritBlossom/Image/Others/ip-animate-border.webp)` }}>
                             <h3>Animation</h3>
@@ -348,7 +348,7 @@ const Background = ({ bg, themeColor }) => {
                 src={bg}
                 className="w-100 d-block"
                 style={{ height: 'auto', objectFit: 'contain' }}
-                alt=""
+                alt="" loading="lazy"
             />
             <div
                 style={{ transform: 'translate(-50%, 0%)', filter: 'drop-shadow(0px 0px 10px rgba(255, 84, 255, 0.8))' }}
