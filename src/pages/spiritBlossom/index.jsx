@@ -1,7 +1,9 @@
 import { memo, useEffect, useState, useRef } from "react";
+import { generatePath, Link } from "react-router-dom";
 import { animationSlide } from "../../utils/functions";
 import ShowContents from "../../components/showContents";
 import styles from "./style.module.css";
+import ROUTERS from "../../utils/router";
 
 const AltSpiritBlossomPage = () => {
     useEffect(() => {
@@ -15,8 +17,8 @@ const AltSpiritBlossomPage = () => {
             <Video title={"Kin of the Stained Blade"} src={"https://www.youtube.com/embed/D4L0OkSrsI8?si=PS1Vew6w9PfdW1rd"} />
             <Slide />
             <Video title={"The Path, An Ionia Myth"} src={"https://www.youtube.com/embed/u9fFG4ZLp9Y?si=wMO2f8yPtPjVDGRk"} />
+            <Others />
             <Gallery />
-            <VideoTheme />
             <Clear />
         </main>
     )
@@ -394,44 +396,32 @@ const Gallery = () => {
     )
 }
 
-const VideoTheme = () => {
-
-    const [show, setShow] = useState(false);
-    const [src, setSrc] = useState(null);
-
-    const OpenShow = (value) => {
-        setSrc(value);
-        setShow(true);
-        document.documentElement.style.overflow = 'hidden';
-    }
+const Others = () => {
 
     return (
-        <section id={styles.videoTheme}>
-            <div className="container py-lg-5 position-relative">
-                <video autoPlay muted loop
-                    className="h-100 w-100 object-fit-contain"
-                    src="https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/SpiritBlossom/Video/video-fetter-ahri.mp4">
-                </video>
-                <div className={`${styles.main} position-absolute d-flex align-items-center justify-content-around flex-column container`}>
-                    <div className="row">
-                        <img className="col-12 object-fit-contain h-100" src="https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/SpiritBlossom/Image/Others/color_show1.webp" loading="lazy" alt="" />
+        <section id={styles.others}>
+            <div className="container py-lg-5   ">
+                <div className="row">
+                    <div className="col-12 py-md-5">
+                        <h2 className={styles.title}>Spirit Blossom 2020</h2>
                     </div>
-                    <div className="row">
-                        <video autoPlay muted onClick={(e) => OpenShow(e.target.currentSrc)}
-                            className="col-12 object-fit-contain" style={{ cursor: "pointer" }}
-                            src="https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/SpiritBlossom/Video/top-video.mp4">
-                        </video>
-                    </div>
-                    <div className="row">
-                        <img className="col-12 object-fit-contain h-100" src="https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/SpiritBlossom/Image/Others/color_show2.webp" loading="lazy" alt="" />
+                </div>
+                <div className="row">
+                    <div className="col-12 m-auto position-relative">
+                        <img className="h-100 w-100 object-fit-contain"
+                            src="https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/SpiritBlossom/Image/Promo/Spirit_Blossom_promo_art_1.jpg"
+                            loading="lazy" alt="" />
+                        <button className={`${styles.btnView} position-absolute bg-transparent start-50 border-0 transition200ms`}
+                            style={{ backgroundImage: 'url(https://raw.githubusercontent.com/VietHung0712/AssetsLOL/refs/heads/main/SpiritBlossom/Image/Others/bg1/btn-buy.webp)' }}>
+                            <Link to={generatePath(ROUTERS.SPIRITBLOSSOM2020, { id: 0 })} className="d-block h-100 w-100 text-decoration-none">
+                                <span className="text-white fw-bold text-uppercase letter-spacing-2">
+                                    View Details
+                                </span>
+                            </Link>
+                        </button>
                     </div>
                 </div>
             </div>
-            {
-                (show) && (
-                    <ShowContents src={src} setSrc={setSrc} setEnable={setShow} category={3} />
-                )
-            }
         </section>
 
     )

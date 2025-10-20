@@ -8,6 +8,7 @@ import RegionDetail from './pages/regionDetail';
 import ChampionDetail from './pages/championDetail';
 import AltKdaPage from './pages/kda/';
 import AltSpiritBlossomPage from './pages/spiritBlossom';
+import AltSpiritBlossom2020Page from './pages/spiritBlossom2020';
 import Explore from './pages/explore';
 
 const renderRouterUser = () => {
@@ -43,6 +44,10 @@ const renderRouterUser = () => {
         {
             path: ROUTERS.SPIRITBLOSSOM,
             component : <AltSpiritBlossomPage />
+        },
+        {
+            path: ROUTERS.SPIRITBLOSSOM2020,
+            component : <AltSpiritBlossom2020Page />
         },
     ];
 

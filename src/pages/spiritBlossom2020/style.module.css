@@ -1,0 +1,231 @@
+#main {
+    padding-bottom: 0;
+}
+
+#hero {
+    .hero {
+        padding-top: 56.25%;
+
+        .logo {
+            height: 100px;
+            width: 100px;
+            bottom: 0%;
+            transform: translate(-50%, -20%);
+        }
+    }
+
+    #btnPage {
+        position: absolute;
+        z-index: 4;
+        height: 60px;
+        width: 60px;
+        border: 0;
+        background-color: transparent;
+        filter: drop-shadow(0px 5px 5px rgba(0, 0, 0));
+        top: 50%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        animation: trans 1000ms ease-out infinite;
+
+        a {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+@keyframes trans {
+    0% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(20px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+#container {
+    .container {
+
+        #selectionHall {
+
+            &:hover .imgTheme.active {
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            .imgArt {
+                visibility: hidden;
+                opacity: 0.8;
+
+                &.active {
+                    visibility: visible;
+                    opacity: 1;
+                }
+            }
+
+            .btns {
+                left: 5%;
+                width: 90%;
+            }
+
+            .btnView {
+                width: 50vw;
+                height: 6vh;
+                top: 80%;
+                transform: translate(-50%, -50%);
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+
+                &:hover {
+                    filter: brightness(1.2);
+                }
+            }
+        }
+
+        #displayHall {
+
+            background-size: 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+
+            .ctr {
+                gap: 10px;
+                transform: translate(0%, -50%);
+
+                &>div {
+                    width: 80px;
+                    aspect-ratio: 1920 / 1080;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: 100%;
+
+                    &>h3 {
+                        display: none;
+                        position: absolute;
+                        bottom: 100%;
+                        left: 10%;
+                        font-size: 16px;
+                        font-weight: bold;
+                        letter-spacing: 2px;
+                        text-transform: uppercase;
+                    }
+                }
+
+                img,
+                video {
+                    display: block;
+                    height: 100%;
+                    width: 100%;
+                    transform: scale(0.9);
+                    cursor: pointer;
+                }
+            }
+
+            .btns {
+
+                right: 2%;
+
+                &>div {
+                    gap: 20px;
+                }
+
+                button {
+                    text-align: justify;
+                    color: midnightblue;
+                    opacity: 0.7;
+                    font-size: 12px;
+
+                    &:hover {
+                        opacity: 1;
+                    }
+
+                    span {
+                        visibility: hidden;
+                        transform: translateX(-10px);
+                    }
+
+                    &.active {
+                        opacity: 1;
+
+                        span {
+                            visibility: visible;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+#background {
+    div {
+        bottom: 0%;
+        img {
+            height: 20px;
+        }
+    }
+}
+
+@media (min-width: 768px) {
+
+    #hero {
+        .hero {
+
+            .logo {
+                height: 200px;
+                width: 200px;
+            }
+        }
+    }
+
+    #container {
+        .container {
+            #selectionHall {
+                .btnView {
+                    width: 220px;
+                    height: 60px;
+                }
+            }
+
+            #displayHall {
+
+                .ctr {
+                    gap: 2vw;
+                    transform: translate(-20%, -50%);
+
+                    &>div {
+                        width: 250px;
+
+                        h3 {
+                            display: block;
+                        }
+                    }
+                }
+
+                .btns {
+
+                    button {
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+    }
+
+    #background {
+    div {
+        bottom: 0%;
+        img {
+            height: 80px;
+        }
+    }
+}
+}

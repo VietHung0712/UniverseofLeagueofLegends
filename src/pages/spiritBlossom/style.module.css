@@ -181,14 +181,21 @@ h2.title {
     }
 }
 
-#videoTheme {
-    width: 100%;
+#others {
+    .btnView {
+        width: 50vw;
+        height: 6vh;
+        top: 60%;
+        font-size: 12px;
+        line-height: 6vh;
+        transform: translate(-50%, -50%);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
 
-    .main {
-        top: 15%;
-        left: 50%;
-        width: 40%;
-        height: 70%;
+        &:hover {
+            filter: brightness(1.2);
+        }
     }
 }
 
@@ -312,6 +319,18 @@ h2.title {
             border-radius: 20px;
             border: 0;
             background-color: transparent;
+        }
+    }
+
+    #others {
+        .btnView {
+            width: 220px;
+            height: 60px;
+
+            a {
+                line-height: 60px;
+                font-size: 12px;
+            }
         }
     }
 
